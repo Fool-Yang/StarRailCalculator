@@ -32,6 +32,7 @@ class ImbibitorLunae(Character):
             imaginary_res_boost=0
         )
 
+        self.energy = self.max_energy / 2 + 15
         self.extra_stats["HP Percentage"] += 0.1
         self.basic_attack_enhancement_level = 0
         self.squama_sacrosancta = 0
@@ -189,3 +190,12 @@ class ImbibitorLunae(Character):
         }
         self.add_buff(talent_buff)
         return tuple()
+
+    def crit_dmg(self, dmg_and_break, target, tags, enemies, players, expected=True):
+        activate = "Imaginary" in target.weaknesses
+        if activate:
+            self.runtime_stats["CRIT DMG"] += 0.24
+        result = super(ImbibitorLunae, self).crit_dmg(dmg_and_break, target, tags, enemies, players, expected)
+        if activate:
+            self.runtime_stats["CRIT DMG"] -= 0.24
+        return result
