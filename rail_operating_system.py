@@ -104,8 +104,8 @@ class RailOperatingSystem:
         # different units have different ways to resolve turns
         # bosses can run several turns in a row
         # according to reverse engineering, they aren't extra turns
-        # because some debuffs can decay (Pela's ice res decrease) and can be interrupted
-        # and they are not action advance because most debuffs don't decay
+        # because they can be interrupted and some debuffs can decay (Pela's ice res decrease)
+        # they are not action advance because most debuffs don't decay
         # they are really their own things and we call them mini turns
         if isinstance(unit, Boss):
             while unit.turns_left > 0:
@@ -323,10 +323,14 @@ class RailOperatingSystem:
                 self.blackboard.append((command, set()))
                 for target, percentage, in data:
                     self.distances[target] += percentage * 10000
+            elif command_type == "Regenerate Energy":
+                self.blackboard.append((command, set()))
+                for target, energy, in data:
+                    target.energy += energy
             else:
                 raise TypeError("unknown command type " + command_type)
         # check if any character wants to run extra commands and executes them
-        # e.g. Luocha's passive healing is an extra command
+        # e.g. Luocha's passive healing from his trace "Sanctified" is an extra command
         # recursively resolve all extra commands, because extra commands may cause more extra commands
         for time_and_unit in self.queue:
             unit = time_and_unit[1]
