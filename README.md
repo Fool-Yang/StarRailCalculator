@@ -23,12 +23,13 @@ Here is a rough description of the process.
         * Receive a batch of commands from the unit (damage, heal, etc.)
         * Broadcast the message "Unit x is proposing some commands"
         * Execute the commands
-          * If any unit needs to run extra commands (usually cause by the broadcasts)
+          * If any unit needs to run extra commands (usually caused by the broadcasts)
             * Execute the commands (recursive call)
-      * If any unit needs to run extra actions (usually cause by the broadcasts)
+      * If any unit needs to run extra actions (usually caused by the broadcasts)
         * Run the action (recursive call)
-    * Check if any unit wants to use Ult
+    * Check if any unit wants to use Ult (This one won't run for Seele. Somehow her extra turn has higher priority)
     * Check if any unit wants to run an extra turn
+    * Check if any unit wants to use Ult
   * Put the unit back to starting position
   * End the unit's turn
 
