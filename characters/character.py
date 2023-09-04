@@ -146,6 +146,7 @@ class Dummy(Character):
         tags = ("Basic ATK", self.dmg_type)
         data = ((targets[0], (dmg, break_dmg), tags),)
         commands.append(("Start ATK", self.decorated_self, targets))
+        commands.append(("Gain SP", self.decorated_self, 1))
         commands.append(("DMG", self.decorated_self, data))
         commands.append(("End ATK", self.decorated_self, targets))
         return tuple(commands), True
