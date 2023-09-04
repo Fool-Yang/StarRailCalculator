@@ -106,24 +106,24 @@ class Blade(Character):
         max_hp = self.runtime_stats["HP"]
         energy_regen = self.runtime_stats["Energy Regeneration Rate"]
         if step == 1:
+            commands.append(("Start ATK", self.decorated_self, targets))
             if self.skill_active:
                 tags = ("Basic ATK", "Enhanced", self.dmg_type)
                 self.energy += 30 * (1 + energy_regen)
-                dmg_break = ((0.4 * atk + 1 * max_hp) / 2, 30)
+                dmg_break = ((0.4 * atk + 1 * max_hp) / 2, 60 / 2)
                 commands.append(("Consume HP", self.decorated_self, ((self.decorated_self, 0.1 * max_hp),)))
             else:
                 tags = ("Basic ATK", self.dmg_type)
                 self.energy += 20 * (1 + energy_regen)
-                dmg_break = (1 * atk / 2, 30)
+                dmg_break = (1 * atk / 2, 30 / 2)
                 commands.append(("Gain SP", self.decorated_self, 1))
             data = ((targets[0], dmg_break, tags),)
-            commands.append(("Start ATK", self.decorated_self, targets))
             commands.append(("DMG", self.decorated_self, data))
             return tuple(commands), False
         else:
             if self.skill_active:
                 tags = ("Basic ATK", "Enhanced", self.dmg_type)
-                dmg_break1 = ((0.4 * atk + 1 * max_hp) / 2, 30)
+                dmg_break1 = ((0.4 * atk + 1 * max_hp) / 2, 60 / 2)
                 dmg_break2 = (0.16 * atk + 0.4 * max_hp, 30)
                 data = [(targets[0], dmg_break1, tags)]
                 for minor_target in targets[1:]:
@@ -131,7 +131,7 @@ class Blade(Character):
                 data = tuple(data)
             else:
                 tags = ("Basic ATK", self.dmg_type)
-                dmg_break = (1 * atk / 2, 30)
+                dmg_break = (1 * atk / 2, 30 / 2)
                 data = ((targets[0], dmg_break, tags),)
             commands.append(("DMG", self.decorated_self, data))
             commands.append(("End ATK", self.decorated_self, targets))
