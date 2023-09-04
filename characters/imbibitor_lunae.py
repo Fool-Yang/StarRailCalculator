@@ -150,6 +150,9 @@ class ImbibitorLunae(Character):
         if step == 1:
             commands.append(("Start ATK", self.decorated_self, targets))
             self.energy = 5 * (1 + self.runtime_stats["Energy Regeneration Rate"])
+            self.squama_sacrosancta += 2
+            if self.squama_sacrosancta > 3:
+                self.squama_sacrosancta = 3
         tags = ("Ultimate", self.dmg_type)
         atk = self.runtime_stats["ATK"]
         dmg_break1 = (3 * atk / 3, 60 / 3)
