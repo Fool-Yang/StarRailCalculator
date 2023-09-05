@@ -73,8 +73,8 @@ class ImbibitorLunae(Character):
         commands = []
         atk = self.runtime_stats["ATK"]
         energy_regen = self.runtime_stats["Energy Regeneration Rate"]
-        tags = ("Basic ATK", self.dmg_type)
         if self.basic_attack_enhancement_level == 0:
+            tags = ("Basic ATK", self.dmg_type)
             done = step >= 2
             if step == 1:
                 commands.append(("Start ATK", self.decorated_self, targets))
@@ -84,6 +84,7 @@ class ImbibitorLunae(Character):
             data = ((targets[0], dmg_break, tags),)
             commands.append(("DMG", self.decorated_self, data))
         else:
+            tags = ("Basic ATK", "Enhanced", self.dmg_type)
             if step == 1:
                 commands.append(("Start ATK", self.decorated_self, targets))
                 sp_consumption = 0
@@ -137,7 +138,7 @@ class ImbibitorLunae(Character):
                 "DMG Type": None,
                 "Value": 0.12,
                 "Value Type": "Flat",
-                "Source": None,
+                "Source": self.decorated_self,
                 "Source Stats": None,
                 "Max Stack": 4,
                 "Stack": 1,
@@ -182,7 +183,7 @@ class ImbibitorLunae(Character):
             "DMG Type": "All",
             "Value": 0.1,
             "Value Type": "Flat",
-            "Source": None,
+            "Source": self.decorated_self,
             "Source Stats": None,
             "Max Stack": 6,
             "Stack": 1,
