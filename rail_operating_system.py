@@ -220,6 +220,8 @@ class RailOperatingSystem:
             if command_type == "DMG":
                 # DMG messages record final damage and have an additional entry indicating whether it critically hits
                 message_data = []
+                # units might generate commands such as weakness break when taking dmg
+                command_batches = []
                 # a dmg command looks like ("DMG", unit, data)
                 # where data is ((target1, (dmg1, break_dmg1), tags1), (target2, (dmg2, break_dmg2), tags2), ...)
                 # it can apply dmg to many targets each with different dmg
@@ -244,7 +246,7 @@ class RailOperatingSystem:
                     if self.show_action:
                         self.battle_log += "  " + target.name + " takes " + str(round(dmg)) + " DMG"
                     # take the dmg
-                    self.run_commands(target.take_dmg(dmg_and_break, unit, tags, self.enemies, self.players))
+                    command_batches.append(target.take_dmg(dmg_and_break, unit, tags, self.enemies, self.players))
                     if self.auto_heal_mode:
                         target.hp = target.runtime_stats["HP"]
                 if self.show_action:
@@ -253,6 +255,8 @@ class RailOperatingSystem:
                 message = (command_type, unit, message_data)
                 self.blackboard.append(message)
                 self.run_commands(unit.end_dmg(message_data, self.players, self.enemies))
+                for commands in command_batches:
+                    self.run_commands(commands)
             elif command_type == "Start ATK":
                 self.blackboard.append((command, set()))
                 self.run_commands(unit.start_atk(data, self.enemies, self.players))
@@ -276,6 +280,8 @@ class RailOperatingSystem:
             elif command_type == "Break":
                 self.blackboard.append((command, set()))
                 for target, dmg_type in data:
+                    if self.show_action:
+                        self.battle_log += "  " + target.name + " breaks"
                     self.run_commands(target.weakness_break(dmg_type, unit, self.enemies, self.players))
             elif command_type == "Heal":
                 # the messages record actual healing (not counting excess healing)
