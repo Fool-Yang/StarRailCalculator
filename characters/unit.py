@@ -161,10 +161,9 @@ class Unit(ABC):
         stats_dict = self.stats["RES PEN"]
         self.runtime_stats["RES PEN"] = {key: stats_dict[key] for key in stats_dict}
         # enemy units will redefine weaknesses and toughness
-        # these are dummy attributes for player players so all units can share the same dmg process
-        # also in case they add toughness for players in the future
+        # these are dummy attributes for player characters so all units can share the same dmg process
         self.weaknesses = set()
-        self.max_toughness = 100
+        self.max_toughness = 0
         self.toughness = self.max_toughness
         # we can't insert ultimate in Seele's extra turn before she takes action
         # but we can do that for some other players which has low priority
@@ -777,6 +776,8 @@ class Unit(ABC):
         if multiplier3 > 3.5:
             multiplier3 = 3.5
         multiplier4 = 1 - self.runtime_stats["DMG Taken Decrease"]
+        if self.toughness > 0:
+            multiplier4 *= 0.9
         if tags[-1] not in self.weaknesses:
             break_dmg = 0
         return multiplier1 * multiplier2 * multiplier3 * multiplier4 * dmg, break_dmg

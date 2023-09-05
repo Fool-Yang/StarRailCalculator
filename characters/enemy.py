@@ -100,12 +100,6 @@ class Enemy(Unit):
         commands.append(("End ATK", self.decorated_self, targets))
         return tuple(commands), True
 
-    def reduce_incoming_dmg(self, dmg_and_break, source, tags, enemies, players):
-        dmg, break_dmg = super(Enemy, self).reduce_incoming_dmg(dmg_and_break, source, tags, enemies, players)
-        if self.toughness > 0:
-            dmg *= 0.9
-        return dmg, break_dmg
-
 
 class Boss(Enemy):
 
