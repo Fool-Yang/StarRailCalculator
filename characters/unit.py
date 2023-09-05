@@ -557,6 +557,8 @@ class Unit(ABC):
             type_name = buff["Type"]
             dmg_type = buff["DMG Type"]
             value = buff["Stack"] * buff["Value"]
+            if buff["Value Type"] == "Percentage":
+                value *= buff["Source"].runtime_stats[buff["Source Stats"]]
             if type_name == "DMG Taken Decrease":
                 self.runtime_stats[type_name] = 1 - (1 - self.runtime_stats[type_name]) * (1 - value)
             elif type_name in stats_with_dmg_type:
@@ -570,6 +572,8 @@ class Unit(ABC):
             type_name = debuff["Type"]
             dmg_type = debuff["DMG type"]
             value = debuff["Stack"] * debuff["Value"]
+            if debuff["Value Type"] == "Percentage":
+                value *= debuff["Source"].runtime_stats[debuff["Source Stats"]]
             if type_name in stats_with_dmg_type:
                 if dmg_type in self.runtime_stats[type_name]:
                     self.runtime_stats[type_name][dmg_type] -= value
