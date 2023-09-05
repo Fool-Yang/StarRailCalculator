@@ -54,12 +54,12 @@ class RailOperatingSystem:
         self.time_passed = 0
         units = enemies + players
         self.queue = []
-        self.distances = {unit.name: 10000 for unit in units}
+        self.distances = {unit: 10000 for unit in units}
         self.blackboard = []
         # put all the units into the queue and assign time and distance
         for unit in units:
             # basic math, time = distance/speed
-            time = self.distances[unit.name] / unit.runtime_stats["SPD"]
+            time = self.distances[unit] / unit.runtime_stats["SPD"]
             self.queue.append([time, unit])
         # sort them by time so the first in the queue is the unit that moves next
         self.queue.sort(key=lambda x: x[0])
@@ -82,14 +82,14 @@ class RailOperatingSystem:
             time_and_unit[0] -= time
             unit = time_and_unit[1]
             # basic math, distance = speed*time
-            self.distances[unit.name] -= unit.runtime_stats["SPD"] * time
+            self.distances[unit] -= unit.runtime_stats["SPD"] * time
         # resolve the turn
         self.run_turn(next_unit)
         # update the time in the queue since there are potential speed changes then sort the queue by time
         for time_and_unit in self.queue:
             unit = time_and_unit[1]
             # basic math, time = distance/speed
-            time_and_unit[0] = self.distances[unit.name] / unit.runtime_stats["SPD"]
+            time_and_unit[0] = self.distances[unit] / unit.runtime_stats["SPD"]
         self.queue.sort(key=lambda x: x[0])
         return True
 
@@ -123,7 +123,7 @@ class RailOperatingSystem:
             self.check_extra_turn()
             self.check_ult()
         # put the unit back to the starting position
-        self.distances[unit.name] = 10000
+        self.distances[unit] = 10000
         self.run_commands(unit.end_turn())
         # erase blackboard
         self.blackboard = []
@@ -196,11 +196,12 @@ class RailOperatingSystem:
         # recursively resolve all extra actions, because extra actions may cause more extra actions
         for time_and_unit in self.queue:
             unit = time_and_unit[1]
-            action = unit.check_extra_action(self.enemies, self.players, self.blackboard)
-            if action:
-                self.run_action(action)
-                break
-                # break here because the recursion already resolves all units' extra actions
+            if not unit.crowd_control:
+                action = unit.check_extra_action(self.enemies, self.players, self.blackboard)
+                if action:
+                    self.run_action(action)
+                    break
+                    # break here because the recursion already resolves all units' extra actions
 
     def run_commands(self, commands):
         """
@@ -230,9 +231,6 @@ class RailOperatingSystem:
                     dmg_and_break, crit = unit.crit_dmg(dmg_and_break, target, tags, self.enemies, self.players)
                     # calculate final dmg with the target's defence, resistance, etc.
                     dmg_and_break = target.reduce_incoming_dmg(dmg_and_break, unit, tags, self.enemies, self.players)
-                    target.take_dmg(dmg_and_break, unit, tags, self.enemies, self.players)
-                    if self.auto_heal_mode:
-                        target.hp = target.runtime_stats["HP"]
                     # record the dmg
                     dmg, break_dmg = dmg_and_break
                     tag_str = " ".join(tags)
@@ -245,6 +243,10 @@ class RailOperatingSystem:
                     message_data.append((target, dmg_and_break, tags, crit))
                     if self.show_action:
                         self.battle_log += "  " + target.name + " takes " + str(round(dmg)) + " DMG"
+                    # take the dmg
+                    self.run_commands(target.take_dmg(dmg_and_break, unit, tags, self.enemies, self.players))
+                    if self.auto_heal_mode:
+                        target.hp = target.runtime_stats["HP"]
                 if self.show_action:
                     self.battle_log += "\n"
                 message_data = tuple(message_data)
@@ -271,6 +273,10 @@ class RailOperatingSystem:
                 if actual_sp_gained:
                     message = (command_type, unit, actual_sp_gained)
                     self.blackboard.append((message, set()))
+            elif command_type == "Break":
+                self.blackboard.append((command, set()))
+                for target, dmg_type in data:
+                    self.run_commands(target.weakness_break(dmg_type, unit, self.enemies, self.players))
             elif command_type == "Heal":
                 # the messages record actual healing (not counting excess healing)
                 message_data = []

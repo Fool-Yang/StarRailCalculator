@@ -313,6 +313,15 @@ class Unit(ABC):
                 tags = (debuff["ID"], "DoT", debuff["DMG Type"])
                 data = ((self.decorated_self, (dmg, 0), tags),)
                 commands.append(("DMG", debuff["Source"], data))
+            elif debuff["Type"] == "Crowd Control":
+                # some crowd control such as entanglement deals additional damage at turn start
+                if debuff["DMG Type"]:
+                    dmg = debuff["Stack"] * debuff["Value"]
+                    if debuff["Value Type"] == "Percentage":
+                        dmg *= debuff["Source"].runtime_stats[debuff["Source Stats"]]
+                    tags = (debuff["ID"], "Additional", debuff["DMG Type"])
+                    data = ((self.decorated_self, (dmg, 0), tags),)
+                    commands.append(("DMG", debuff["Source"], data))
         for debuff in removed_ones:
             self.debuffs.remove(debuff)
         if removed_any:
@@ -349,7 +358,7 @@ class Unit(ABC):
                     removed_any = True
         for debuff in removed_ones:
             self.debuffs.remove(debuff)
-        if "Frozen" in self.crowd_control:
+        if "Freeze" in self.crowd_control:
             data = ((self.decorated_self, 0.5),)
             commands.append(("Advance", self.decorated_self, data))
         if removed_any:
@@ -368,7 +377,7 @@ class Unit(ABC):
                 "ID": "Example Buff",\n
                 "Type": "DMG Boost",\n
                 "DMG Type": "Fire",\n
-                "Value Type": "Flat"\n
+                "Value Type": "Flat",\n
                 "Value": 0.2,\n
                 "Source": None,\n
                 "Source Stats": None,\n
@@ -406,7 +415,7 @@ class Unit(ABC):
                 "ID": "Example Debuff",\n
                 "Type": "DoT",\n
                 "DMG Type": "Physical",\n
-                "Value Type": "Percentage"\n
+                "Value Type": "Percentage",\n
                 "Value": 0.6,\n
                 "Source": applier_unit,\n
                 "Source Stats": "ATK",\n
@@ -476,7 +485,7 @@ class Unit(ABC):
         """
         chance = (1 - self.runtime_stats["Effect RES"]) * chance
         if debuff["Type"] == "Crowd Control":
-            chance *= self.runtime_stats["Crowd Control RES"]
+            chance *= (1 - self.runtime_stats["Crowd Control RES"])
         if chance < 0:
             chance = 0
         elif chance > 1:
@@ -576,7 +585,7 @@ class Unit(ABC):
                 self.runtime_stats[type_name] += value
         for debuff in self.debuffs:
             type_name = debuff["Type"]
-            dmg_type = debuff["DMG type"]
+            dmg_type = debuff["DMG Type"]
             value = debuff["Stack"] * debuff["Value"]
             if debuff["Value Type"] == "Percentage":
                 value *= debuff["Source"].runtime_stats[debuff["Source Stats"]]
@@ -784,7 +793,7 @@ class Unit(ABC):
 
     def take_dmg(self, dmg_and_break, source, tags, enemies, players):
         """
-        Takes damage.
+        Takes damage and potentially return commands such as break effect.
 
         Parameters:
         ----------
@@ -801,10 +810,38 @@ class Unit(ABC):
             The tuple of enemy units
         players: tuple
             The tuple of player units
+
+        Returns:
+        -------
+        A tuple of commands
         """
+        commands = []
         dmg, break_dmg = dmg_and_break
         self.hp -= dmg
-        self.toughness -= break_dmg
+        if self.toughness > 0:
+            self.toughness -= break_dmg
+            if self.toughness <= 0:
+                data = ((self.decorated_self, tags[-1]),)
+                commands.append(("Break", source, data))
+        if "Entanglement" in self.crowd_control:
+            debuff = {
+                "ID": "Entanglement",
+                "Type": "Crowd Control",
+                "DMG Type": "Quantum",
+                "Value Type": "Flat",
+                # the following fields with None are not needed for adding a stack
+                "Value": None,
+                "Source": None,
+                "Source Stats": None,
+                "Max Stack": 5,
+                "Stack": 1,
+                "Decay": "Start",
+                "Turn": 1,
+                "Unlock": "Start",
+                "Locked": True
+            }
+            self.decorated_self.add_debuff(debuff)
+        return tuple(commands)
 
     def consume_hp(self, hp, source, enemies, players):
         """

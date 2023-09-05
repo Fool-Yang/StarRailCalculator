@@ -1,5 +1,17 @@
 from characters.unit import *
 
+WEAKNESS_BREAK_DOT_NAMES = {
+    "Physical": "Bleed",
+    "Fire": "Burn",
+    "Lightning": "Shock",
+    "Wind": "Wind Shear"
+}
+WEAKNESS_BREAK_DEBUFF_NAMES = {
+    "Ice": "Freeze",
+    "Quantum": "Entanglement",
+    "Imaginary": "Imprisonment"
+}
+
 
 def choose_target(players):
     """
@@ -85,10 +97,128 @@ class Enemy(Unit):
         self.decorated_self.refresh_runtime_stats()
         self.max_toughness = max_toughness
         self.toughness = max_toughness
+        # define weakness break damage
+        weakness_beak_dmg_level_multiplier = 3767.5533
+        weakness_beak_dmg_toughness_multiplier = 0.5 + self.max_toughness / 120
+        base_dmg_multiplier = weakness_beak_dmg_level_multiplier * weakness_beak_dmg_toughness_multiplier
+        self.weakness_beak_base_dmg = {
+            "Physical": 2 * base_dmg_multiplier,
+            "Fire": 2 * base_dmg_multiplier,
+            "Ice": 1 * base_dmg_multiplier,
+            "Lightning": 1 * base_dmg_multiplier,
+            "Wind": 1.5 * base_dmg_multiplier,
+            "Quantum": 0.5 * base_dmg_multiplier,
+            "Imaginary": 0.5 * base_dmg_multiplier
+        }
+        self.weakness_beak_debuff_dmg = {
+            "Physical": (0.07 if isinstance(self, Boss) else 0.16) * self.runtime_stats["HP"],
+            "Fire": 1 * weakness_beak_dmg_level_multiplier,
+            "Ice": 1 * weakness_beak_dmg_level_multiplier,
+            "Lightning": 2 * weakness_beak_dmg_level_multiplier,
+            "Wind": 1 * weakness_beak_dmg_level_multiplier,
+            "Quantum": 0.6 * base_dmg_multiplier,
+            "Imaginary": 0
+        }
+        bleed_dmg_cap = 2 * base_dmg_multiplier
+        if self.weakness_beak_debuff_dmg["Physical"] > bleed_dmg_cap:
+            self.weakness_beak_debuff_dmg["Physical"] = bleed_dmg_cap
 
     def choose_action(self, enemies, players, sp):
         target = choose_target(players)
         return "Basic ATK", self.decorated_self, (target,)
+
+    def weakness_break(self, dmg_type, source, enemies, players):
+        """
+        Suffers weakness break and returns the DMG and Debuff commands.
+
+        Parameters:
+        ----------
+        dmg_type: str
+            The damage type
+        source: Unit
+            The source unit of the break
+        enemies: tuple
+            The tuple of enemy units
+        players: tuple
+            The tuple of player units
+
+        Returns:
+        -------
+        A tuple of commands
+        """
+        commands = []
+        break_effect_multiplier = 1 + source.runtime_stats["Break Effect"]
+        # weakness break base damage
+        dmg = self.weakness_beak_base_dmg[dmg_type] * break_effect_multiplier
+        tags = ("Break", dmg_type)
+        data = ((self.decorated_self, (dmg, 0), tags),)
+        commands.append(("DMG", source, data))
+        # weakness break debuff
+        dmg = self.weakness_beak_debuff_dmg[dmg_type] * break_effect_multiplier
+        if dmg_type in WEAKNESS_BREAK_DOT_NAMES:
+            debuff_id = WEAKNESS_BREAK_DOT_NAMES[dmg_type]
+            data = ((self.decorated_self, 0.25),)
+            commands.append(("Delay", source, data))
+            if dmg_type == "Wind":
+                max_stack = 5
+                if isinstance(self, Boss):
+                    stack = 3
+                else:
+                    stack = 1
+            else:
+                max_stack = 1
+                stack = 1
+            debuff = {
+                "ID": debuff_id + " Break",
+                "Type": "DoT",
+                "DMG Type": dmg_type,
+                "Value Type": "Flat",
+                "Value": dmg,
+                "Source": source,
+                "Source Stats": None,
+                "Max Stack": max_stack,
+                "Stack": stack,
+                "Decay": "Start",
+                "Turn": 2,
+                "Unlock": "Start",
+                "Locked": True
+            }
+        else:
+            debuff_id = WEAKNESS_BREAK_DEBUFF_NAMES[dmg_type]
+            if dmg_type == "Quantum":
+                value = dmg
+                max_stack = 5
+                data = ((self.decorated_self, 0.25 + 0.2),)
+            elif dmg_type == "Imaginary":
+                # Imprisonment doesn't deal additional damage, but applies SPD reduction
+                dmg_type = None
+                value = 0.1 * self.stats["SPD"]
+                max_stack = 1
+                data = ((self.decorated_self, 0.25 + 0.3),)
+            else:
+                value = dmg
+                max_stack = 1
+                data = ((self.decorated_self, 0.25),)
+            commands.append(("Delay", source, data))
+            debuff = {
+                "ID": debuff_id,
+                "Type": "Crowd Control",
+                "DMG Type": dmg_type,
+                "Value Type": "Flat",
+                "Value": value,
+                "Source": source,
+                "Source Stats": None,
+                "Max Stack": max_stack,
+                "Stack": 1,
+                "Decay": "Start",
+                "Turn": 1,
+                "Unlock": "Start",
+                "Locked": True
+            }
+        data = ((self.decorated_self, 1.5, debuff),)
+        commands.append(("Debuff", source, data))
+        # weakness break action delay
+        return tuple(commands)
 
     def basic_atk(self, targets, step):
         commands = []
