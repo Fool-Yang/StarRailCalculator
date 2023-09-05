@@ -451,7 +451,7 @@ class Unit(ABC):
         """
         return (1 + self.runtime_stats["Effect Hit Rate"]) * chance
 
-    def amend_incoming_effect_chance(self, chance, source, enemies, players):
+    def amend_incoming_effect_chance(self, chance, debuff, source, enemies, players):
         """
         Calculates the chance to apply debuff affected by the Effect RES stats
 
@@ -459,6 +459,8 @@ class Unit(ABC):
         ----------
         chance: float
             The chance to apply debuff (can be more than 1)
+        debuff: dict
+            The debuff to be added
         source: Unit
             The source unit of the debuff
         enemies: tuple
@@ -471,6 +473,8 @@ class Unit(ABC):
         The modified chance restricted to the range [0, 1]
         """
         chance = (1 - self.runtime_stats["Effect RES"]) * chance
+        if debuff["Type"] == "Crowd Control":
+            chance *= self.runtime_stats["Crowd Control RES"]
         if chance < 0:
             chance = 0
         elif chance > 1:
@@ -584,7 +588,7 @@ class Unit(ABC):
             elif type_name == "Crowd Control":
                 debuff_id = debuff["ID"]
                 self.crowd_control.add(debuff_id)
-                if debuff_id == "Imprisoned":
+                if debuff_id == "Imprisonment":
                     self.runtime_stats["SPD"] -= value
         # avoid non-positive speed
         if self.runtime_stats["SPD"] < 0.01:

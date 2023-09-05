@@ -310,7 +310,7 @@ class RailOperatingSystem:
                 message_data = []
                 for target, chance, debuff in data:
                     chance = unit.amend_outgoing_effect_chance(chance, target, self.enemies, self.players)
-                    chance = target.amend_incoming_effect_chance(chance, unit, self.enemies, self.players)
+                    chance = target.amend_incoming_effect_chance(chance, debuff, unit, self.enemies, self.players)
                     if target.maybe_add_debuff(chance, debuff):
                         message_data.append((target, debuff))
                 message_data = tuple(message_data)

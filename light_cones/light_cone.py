@@ -70,8 +70,8 @@ class LightConeDecorator(Character, ABC):
         return self.__decorated_character.amend_outgoing_effect_chance(chance, target, enemies, players)
 
     @abstractmethod
-    def amend_incoming_effect_chance(self, chance, source, enemies, players):
-        return self.__decorated_character.amend_incoming_effect_chance(chance, source, enemies, players)
+    def amend_incoming_effect_chance(self, chance, debuff, source, enemies, players):
+        return self.__decorated_character.amend_incoming_effect_chance(chance, debuff, source, enemies, players)
 
     @abstractmethod
     def maybe_add_debuff(self, chance, new_debuff):

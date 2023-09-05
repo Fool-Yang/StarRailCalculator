@@ -61,8 +61,8 @@ class Salsotto(RelicDecorator):
     def amend_outgoing_effect_chance(self, chance, target, enemies, players):
         return self.__decorated_character.amend_outgoing_effect_chance(chance, target, enemies, players)
 
-    def amend_incoming_effect_chance(self, chance, source, enemies, players):
-        return self.__decorated_character.amend_incoming_effect_chance(chance, source, enemies, players)
+    def amend_incoming_effect_chance(self, chance, debuff, source, enemies, players):
+        return self.__decorated_character.amend_incoming_effect_chance(chance, debuff, source, enemies, players)
 
     def maybe_add_debuff(self, chance, new_debuff):
         return self.__decorated_character.maybe_add_debuff(chance, new_debuff)
