@@ -3,11 +3,11 @@ from relics.relic import *
 
 class Disciple(RelicDecorator):
 
-    def __init__(self, decorated_character, *args):
+    def __init__(self, decorated_character, main_stats, sub_stats):
         self.__dict__ = decorated_character.__dict__
         self.__decorated_character = decorated_character
         self.decorated_self = self
-        for stats in args:
+        for stats in main_stats:
             if stats in self.extra_stats:
                 self.extra_stats[stats] += RELIC_MAIN_STATS[stats]
             elif stats == "DMG Boost":
@@ -16,7 +16,11 @@ class Disciple(RelicDecorator):
                 self.stats["DMG Boost"][stats] += RELIC_MAIN_STATS["DMG Boost"]
             else:
                 self.stats[stats] += RELIC_MAIN_STATS[stats]
-        # TODO: add sub stats
+        for sub_stats, value in sub_stats:
+            if sub_stats in self.extra_stats:
+                self.extra_stats[sub_stats] += value
+            else:
+                self.stats[sub_stats] += value
         self.extra_stats["HP"] += RELIC_MAIN_STATS["HP"]
         self.extra_stats["ATK"] += RELIC_MAIN_STATS["ATK"]
         self.extra_stats["HP Percentage"] += 0.12

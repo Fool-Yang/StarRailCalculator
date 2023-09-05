@@ -20,8 +20,8 @@ for _ in range(trial):
     # enemies = [E4, E2, E1, E3, E5]
     B = Blade()
     B = TheUnreachableSide(B)
-    B = Disciple(B, "HP Percentage", "CRIT DMG")
-    B = Salsotto(B, "DMG Boost", "HP Percentage")
+    B = Disciple(B, main_stats=("HP Percentage", "CRIT DMG"), sub_stats=(("CRIT Rate", 0.25), ("CRIT DMG", 0.5)))
+    B = Salsotto(B, main_stats=("HP Percentage", "DMG Boost"), sub_stats=(("HP Percentage", 0.4),))
     D1 = Dummy("Dummy1")
     D2 = Dummy("Dummy2")
     D3 = Dummy("Dummy3")

@@ -24,11 +24,11 @@ class RelicDecorator(Character):
     # read light_cone.py for the reason
 
     @abstractmethod
-    def __init__(self, decorated_character, *args):
+    def __init__(self, decorated_character, main_stats, sub_stats):
         self.__dict__ = decorated_character.__dict__
         self.__decorated_character = decorated_character
         self.decorated_self = self
-        for stats in args:
+        for stats in main_stats:
             if stats in self.extra_stats:
                 self.extra_stats[stats] += RELIC_MAIN_STATS[stats]
             elif stats == "DMG Boost":
@@ -37,7 +37,11 @@ class RelicDecorator(Character):
                 self.stats["DMG Boost"][stats] += RELIC_MAIN_STATS["DMG Boost"]
             else:
                 self.stats[stats] += RELIC_MAIN_STATS[stats]
-        # TODO: add sub stats
+        for sub_stats, value in sub_stats:
+            if sub_stats in self.extra_stats:
+                self.extra_stats[sub_stats] += value
+            else:
+                self.stats[sub_stats] += value
         self.refresh_runtime_stats()
 
     @abstractmethod
