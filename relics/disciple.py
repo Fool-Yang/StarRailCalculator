@@ -24,7 +24,9 @@ class Disciple(RelicDecorator):
         self.extra_stats["HP"] += RELIC_MAIN_STATS["HP"]
         self.extra_stats["ATK"] += RELIC_MAIN_STATS["ATK"]
         self.extra_stats["HP Percentage"] += 0.12
+        # initialize hp
         self.refresh_runtime_stats()
+        self.hp = self.runtime_stats["HP"]
 
     def take_dmg(self, dmg_and_break, source, tags, enemies, players):
         buff = {

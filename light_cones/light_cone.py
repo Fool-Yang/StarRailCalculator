@@ -25,7 +25,7 @@ class LightConeDecorator(Character, ABC):
         self.stats["HP"] += hp
         self.stats["ATK"] += atk
         self.stats["DEF"] += def_
-        # initialize hp and energy
+        # initialize hp
         self.refresh_runtime_stats()
         self.hp = decorated_character.runtime_stats["HP"]
 

@@ -29,7 +29,9 @@ class Musketeer(Character):
             self.stats["DMG Boost"]["Basic ATK"] += 0.1
         else:
             self.stats["DMG Boost"]["Basic ATK"] = 0.1
+        # initialize hp
         self.refresh_runtime_stats()
+        self.hp = self.runtime_stats["HP"]
 
     def choose_action(self, enemies, players, sp):
         return self.__decorated_character.choose_action(enemies, players, sp)

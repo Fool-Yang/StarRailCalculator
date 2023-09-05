@@ -22,7 +22,9 @@ class Arena(RelicDecorator):
             else:
                 self.stats[sub_stats] += value
         self.stats["CRIT Rate"] += 0.08
+        # initialize hp
         self.refresh_runtime_stats()
+        self.hp = self.runtime_stats["HP"]
 
     def amend_outgoing_dmg(self, dmg_and_break, target, tags, enemies, players):
         activate = ("Basic ATK" in tags or "Skill" in tags) and self.runtime_stats["CRIT Rate"] >= 0.7

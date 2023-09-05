@@ -42,7 +42,9 @@ class RelicDecorator(Character):
                 self.extra_stats[sub_stats] += value
             else:
                 self.stats[sub_stats] += value
+        # initialize hp
         self.refresh_runtime_stats()
+        self.hp = self.runtime_stats["HP"]
 
     @abstractmethod
     def choose_action(self, enemies, players, sp):

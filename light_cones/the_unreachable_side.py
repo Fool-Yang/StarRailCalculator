@@ -15,7 +15,7 @@ class TheUnreachableSide(LightConeDecorator):
         self.extra_stats["HP Percentage"] += 0.18 + 0.03 * stack_minus_1
         self.__dmg_boost = 0.24 + 0.04 * stack_minus_1
         self.__active = False
-        # initialize hp and energy
+        # initialize hp
         self.refresh_runtime_stats()
         self.hp = self.runtime_stats["HP"]
 

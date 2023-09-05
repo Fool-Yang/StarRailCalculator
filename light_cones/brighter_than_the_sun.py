@@ -14,7 +14,9 @@ class BrighterThanTheSun(LightConeDecorator):
         self.stats["CRIT Rate"] += 0.18 + 0.03 * stack_minus_1
         self.__atk = (0.18 + 0.03 * stack_minus_1) * self.stats["ATK"]
         self.__energy_regeneration_rate = 0.06 + 0.01 * stack_minus_1
+        # initialize hp
         self.refresh_runtime_stats()
+        self.hp = self.runtime_stats["HP"]
 
     def basic_atk(self, targets, step):
         buff1 = {
