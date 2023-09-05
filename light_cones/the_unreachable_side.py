@@ -94,6 +94,9 @@ class TheUnreachableSide(LightConeDecorator):
     def end_dmg(self, data, enemies, players):
         return self.__decorated_character.end_dmg(data, enemies, players)
 
+    def end_taking_atk(self, energy, enemies, players):
+        return self.__decorated_character.end_taking_atk(energy, enemies, players)
+
     def amend_outgoing_dmg(self, dmg_and_break, target, tags, enemies, players):
         return self.__decorated_character.amend_outgoing_dmg(dmg_and_break, target, tags, enemies, players)
 

@@ -90,6 +90,9 @@ class Musketeer(Character):
     def end_atk(self, targets, enemies, players):
         return self.__decorated_character.end_atk(targets, enemies, players)
 
+    def end_taking_atk(self, energy, enemies, players):
+        return self.__decorated_character.end_taking_atk(energy, enemies, players)
+
     def amend_outgoing_dmg(self, dmg_and_break, target, tags, enemies, players):
         return self.__decorated_character.amend_outgoing_dmg(dmg_and_break, target, tags, enemies, players)
 

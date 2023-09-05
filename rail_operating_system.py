@@ -263,6 +263,9 @@ class RailOperatingSystem:
             elif command_type == "End ATK":
                 self.blackboard.append((command, set()))
                 self.run_commands(unit.end_atk(data, self.enemies, self.players))
+                for target in data:
+                    energy_restore = 10
+                    self.run_commands(target.end_taking_atk(energy_restore, self.enemies, self.players))
             elif command_type == "Lose SP":
                 self.blackboard.append((command, set()))
                 self.sp -= data

@@ -224,9 +224,12 @@ class Blade(Character):
             self.skill_active = False
         return result
 
+    def end_taking_atk(self, energy, enemies, players):
+        self.talent_stack += 1
+        return super(Blade, self).end_taking_atk(energy, enemies, players)
+
     def take_dmg(self, dmg_and_break, source, tags, enemies, players):
         result = super(Blade, self).take_dmg(dmg_and_break, source, tags, enemies, players)
-        self.talent_stack += 1
         self.lost_hp += dmg_and_break[0]
         max_lost_hp = 0.9 * self.runtime_stats["HP"]
         if self.lost_hp > max_lost_hp:

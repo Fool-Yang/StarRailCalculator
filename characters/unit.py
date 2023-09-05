@@ -7,9 +7,9 @@ class Unit(ABC):
     The units in the battle. Units answer calls from the operating system in battle and generate actions/commands.\n
     Although, the way the system deals with extra command is already enough to handle any effects that triggers at
     any time, effects that triggers with attacks are very common. To improve both running and coding efficiency,
-    three methods for that purpose is defined in the Unit class, start_attack(.), end_dmg(.) and end_attack(.).
-    Effects that triggers at those phases can be directly defined in those methods or they can be defined in the
-    Unit.check_extra_commands(.) method which will have to read the blackboard.
+    some methods for that purpose is defined in the Unit class, start_atk(.), end_dmg(.), end_atk(.) and
+    end_taking_atk(.). Effects that triggers at those phases can be directly defined in those methods or they can be
+    defined in Unit.check_extra_commands(.) method which will have to read the blackboard.
 
     Attributes:
     ----------
@@ -662,6 +662,26 @@ class Unit(ABC):
         -------
         A tuple of commands
         """
+        return tuple()
+
+    def end_taking_atk(self, energy, enemies, players):
+        """
+        Ends a taking attack process. Restores energy and after-being_attacked effects might trigger.
+
+        Parameters:
+        ----------
+        energy: float
+            The amount of energy to restore from taking an attack
+        enemies: tuple
+            The tuple of enemy units
+        players: tuple
+            The tuple of player units
+
+        Returns:
+        -------
+        A tuple of commands
+        """
+        self.energy += energy * (1 + self.runtime_stats["Energy Regeneration Rate"])
         return tuple()
 
     def amend_outgoing_dmg(self, dmg_and_break, target, tags, enemies, players):

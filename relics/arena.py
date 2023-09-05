@@ -94,6 +94,9 @@ class Arena(RelicDecorator):
     def end_atk(self, targets, enemies, players):
         return self.__decorated_character.end_atk(targets, enemies, players)
 
+    def end_taking_atk(self, energy, enemies, players):
+        return self.__decorated_character.end_taking_atk(energy, enemies, players)
+
     def crit_dmg(self, dmg_and_break, target, tags, enemies, players, expected=True):
         return self.__decorated_character.crit_dmg(dmg_and_break, target, tags, enemies, players, expected)
 
