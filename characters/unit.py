@@ -687,7 +687,8 @@ class Unit(ABC):
         The modified (damage, break_damage)
         """
         dmg, break_dmg = dmg_and_break
-        if "Break" or "Delayed" in tags:
+        # weakness break dmg and delayed dmg are only affected by break effect
+        if "Break" in tags or "Delayed" in tags:
             return dmg * (1 + self.runtime_stats["Break Effect"]), break_dmg
         dmg_boost = self.runtime_stats["DMG Boost"]
         multiplier1 = 1 + dmg_boost["All"]
