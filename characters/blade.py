@@ -139,7 +139,7 @@ class Blade(Character):
             # actually only need to check the second hit
             for target in targets:
                 if target.toughness <= 0:
-                    data = (self.decorated_self, 0.05 * self.stats["HP"] + 100)
+                    data = ((self.decorated_self, 0.05 * self.stats["HP"] + 100),)
                     commands.append(("Heal", self.decorated_self, data))
             return tuple(commands), True
 
@@ -210,7 +210,8 @@ class Blade(Character):
         commands.append(("Start ATK", self.decorated_self, targets))
         commands.append(("DMG", self.decorated_self, tuple(data)))
         commands.append(("End ATK", self.decorated_self, targets))
-        commands.append(("Heal", self.decorated_self, ((self.decorated_self, 0.25 * self.runtime_stats["HP"]),)))
+        data = ((self.decorated_self, 0.25 * self.runtime_stats["HP"]),)
+        commands.append(("Heal", self.decorated_self, data))
         return tuple(commands), True
 
     def end_turn(self):
