@@ -319,7 +319,7 @@ class Unit(ABC):
                     dmg = debuff["Stack"] * debuff["Value"]
                     if debuff["Value Type"] == "Percentage":
                         dmg *= debuff["Source"].runtime_stats[debuff["Source Stats"]]
-                    tags = (debuff["ID"], "Additional", debuff["DMG Type"])
+                    tags = (debuff["ID"], "Delayed", "Additional", debuff["DMG Type"])
                     data = ((self.decorated_self, (dmg, 0), tags),)
                     commands.append(("DMG", debuff["Source"], data))
         for debuff in removed_ones:
@@ -687,6 +687,8 @@ class Unit(ABC):
         The modified (damage, break_damage)
         """
         dmg, break_dmg = dmg_and_break
+        if "Break" or "Delayed" in tags:
+            return dmg * (1 + self.runtime_stats["Break Effect"]), break_dmg
         dmg_boost = self.runtime_stats["DMG Boost"]
         multiplier1 = 1 + dmg_boost["All"]
         for tag in tags:
@@ -724,8 +726,8 @@ class Unit(ABC):
         dmg, break_dmg = dmg_and_break
         crit = False
         multiplier = 1
-        # only non-DoT can crit
-        if "DoT" not in tags:
+        # DoT and weakness break damage can't crit
+        if "DoT" not in tags and "Break" not in tags and "Delayed" not in tags:
             # in most cases just calculate the expected dmg
             # for effects that play with crit like Sleep Like the Dead, do crit rng check
             if expected:

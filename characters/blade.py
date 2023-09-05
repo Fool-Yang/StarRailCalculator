@@ -141,6 +141,7 @@ class Blade(Character):
                 if target.toughness <= 0:
                     data = ((self.decorated_self, 0.05 * self.stats["HP"] + 100),)
                     commands.append(("Heal", self.decorated_self, data))
+                    break
             return tuple(commands), True
 
     def skill(self, targets, step):

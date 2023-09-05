@@ -147,14 +147,13 @@ class Enemy(Unit):
         A tuple of commands
         """
         commands = []
-        break_effect_multiplier = 1 + source.runtime_stats["Break Effect"]
         # weakness break base damage
-        dmg = self.weakness_beak_base_dmg[dmg_type] * break_effect_multiplier
+        dmg = self.weakness_beak_base_dmg[dmg_type]
         tags = ("Break", dmg_type)
         data = ((self.decorated_self, (dmg, 0), tags),)
         commands.append(("DMG", source, data))
         # weakness break debuff
-        dmg = self.weakness_beak_debuff_dmg[dmg_type] * break_effect_multiplier
+        dmg = self.weakness_beak_debuff_dmg[dmg_type]
         if dmg_type in WEAKNESS_BREAK_DOT_NAMES:
             debuff_id = WEAKNESS_BREAK_DOT_NAMES[dmg_type]
             data = ((self.decorated_self, 0.25),)
