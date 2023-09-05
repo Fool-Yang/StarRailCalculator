@@ -82,7 +82,7 @@ class Blade(Character):
     def check_extra_turn(self, enemies, players, sp, blackboard):
         if self.need_to_take_extra_turn:
             self.need_to_take_extra_turn = False
-            return self.choose_action(enemies, players, sp)
+            return self.decorated_self.choose_action(enemies, players, sp)
 
     def check_extra_action(self, enemies, players, blackboard):
         if self.talent_stack >= self.max_talent_stack:
@@ -163,7 +163,7 @@ class Blade(Character):
                 "Unlock": "Action",
                 "Locked": True
             }
-            self.add_buff(buff)
+            self.decorated_self.add_buff(buff)
             data = ((self.decorated_self, 0.3 * self.runtime_stats["HP"]),)
             commands.append(("Lose SP", self.decorated_self, 1))
             commands.append(("Consume HP", self.decorated_self, data))
@@ -230,7 +230,7 @@ class Blade(Character):
         if self.lost_hp > max_lost_hp:
             self.lost_hp = max_lost_hp
         if self.hp <= 0.5 * self.runtime_stats["HP"]:
-            self.add_buff(self.trace_buff)
+            self.decorated_self.add_buff(self.trace_buff)
         return result
 
     def consume_hp(self, hp, source, enemies, players):
@@ -241,11 +241,11 @@ class Blade(Character):
         if self.lost_hp > max_lost_hp:
             self.lost_hp = max_lost_hp
         if self.hp <= 0.5 * self.runtime_stats["HP"]:
-            self.add_buff(self.trace_buff)
+            self.decorated_self.add_buff(self.trace_buff)
         return hp
 
     def take_healing(self, hp, source, enemies, players):
         hp = super(Blade, self).take_healing(hp, source, enemies, players)
         if self.hp > 0.5 * self.runtime_stats["HP"] and self.trace_buff in self.buffs:
-            self.dispel_buff(self.trace_buff)
+            self.decorated_self.dispel_buff(self.trace_buff)
         return hp

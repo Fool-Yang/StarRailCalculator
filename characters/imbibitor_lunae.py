@@ -103,6 +103,9 @@ class ImbibitorLunae(Character):
                 dmg_break1 = (3.8 * atk / 5, 90 / 5)
                 data = [(targets[0], dmg_break1, tags)]
                 if step >= 4:
+                    # Imbibitor doesn't really have a skill that count as an action
+                    # skill(.) is only for internal usage for adding buffs
+                    # do not use self.decorated_self.skill() as it does not count as using skill
                     self.skill(targets, step)
                     dmg_break2 = (0.6 * atk / 2, 30 / 2)
                     for minor_target in targets[1:]:
@@ -143,7 +146,7 @@ class ImbibitorLunae(Character):
                 "Unlock": "End",
                 "Locked": True
             }
-            self.add_buff(skill_buff)
+            self.decorated_self.add_buff(skill_buff)
 
     def ultimate(self, targets, step):
         commands = []
@@ -188,7 +191,7 @@ class ImbibitorLunae(Character):
             "Unlock": "End",
             "Locked": True
         }
-        self.add_buff(talent_buff)
+        self.decorated_self.add_buff(talent_buff)
         return tuple()
 
     def crit_dmg(self, dmg_and_break, target, tags, enemies, players, expected=True):

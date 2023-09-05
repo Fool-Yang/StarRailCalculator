@@ -143,8 +143,11 @@ class Unit(ABC):
             "Weaken": 0
         }
         # sometimes the unit returns a reference to itself
-        # but when it's decorated, self should be the outer most decorator
-        # this will be overwritten by every decorator
+        # or the unit might need to call its own methods using self.foo(.)
+        # but when the unit decorated, e.g. by a light cone, self should mean the outer most decorator
+        # when calling methods, use self.decorated_self.foo(.) instead
+        # it is fine to access attributes using self.attr because attributes are shared by all decorators
+        # decorated_self will be overwritten by every decorator
         self.decorated_self = self
         # run time stats are used in calculations
         # they can be affected by buffs/debuffs
@@ -171,7 +174,7 @@ class Unit(ABC):
         self.debuffs = []
         self.crowd_control = set()
         # initialize hp and energy
-        self.refresh_runtime_stats()
+        self.decorated_self.refresh_runtime_stats()
         self.hp = self.runtime_stats["HP"]
         self.energy = max_energy / 2
 
@@ -206,9 +209,9 @@ class Unit(ABC):
         but if you buff U with other units' ultimate first, then let U take action, the buff will decay at turn end.
         This explains why Sleep Like the Dead's buff don't decay after the turn it's triggered.
         """
-        self.unlock_buffs_debuffs("Action")
+        self.decorated_self.unlock_buffs_debuffs("Action")
         self.toughness = self.max_toughness
-        return self.choose_action(enemies, players, sp)
+        return self.decorated_self.choose_action(enemies, players, sp)
 
     def check_extra_commands(self, enemies, players, blackboard):
         """
@@ -278,7 +281,7 @@ class Unit(ABC):
         -------
         A tuple of commands
         """
-        self.unlock_buffs_debuffs("Start")
+        self.decorated_self.unlock_buffs_debuffs("Start")
         # might produce commands for DoT or healing, etc.
         commands = []
         removed_ones = []
@@ -314,7 +317,7 @@ class Unit(ABC):
         for debuff in removed_ones:
             self.debuffs.remove(debuff)
         if removed_any:
-            self.refresh_runtime_stats()
+            self.decorated_self.refresh_runtime_stats()
         return tuple(commands)
 
     def end_turn(self):
@@ -327,7 +330,7 @@ class Unit(ABC):
         A tuple of commands
         """
         commands = []
-        self.unlock_buffs_debuffs("End")
+        self.decorated_self.unlock_buffs_debuffs("End")
         removed_ones = []
         removed_any = False
         for buff in self.buffs:
@@ -351,7 +354,7 @@ class Unit(ABC):
             data = ((self.decorated_self, 0.5),)
             commands.append(("Advance", self.decorated_self, data))
         if removed_any:
-            self.refresh_runtime_stats()
+            self.decorated_self.refresh_runtime_stats()
         return tuple(commands)
 
     def add_buff(self, new_buff):
@@ -390,7 +393,7 @@ class Unit(ABC):
                 break
         else:
             self.buffs.append(new_buff)
-        self.refresh_runtime_stats()
+        self.decorated_self.refresh_runtime_stats()
 
     def add_debuff(self, new_debuff):
         """
@@ -428,7 +431,7 @@ class Unit(ABC):
                 break
         else:
             self.debuffs.append(new_debuff)
-        self.refresh_runtime_stats()
+        self.decorated_self.refresh_runtime_stats()
 
     def amend_outgoing_effect_chance(self, chance, target, enemies, players):
         """
@@ -497,7 +500,7 @@ class Unit(ABC):
         True if the debuff is successfully applied
         """
         if random() < chance:
-            self.add_debuff(new_debuff)
+            self.decorated_self.add_debuff(new_debuff)
             return True
         return False
 
@@ -511,7 +514,7 @@ class Unit(ABC):
             The buff to be removed from this unit
         """
         self.buffs.remove(buff)
-        self.refresh_runtime_stats()
+        self.decorated_self.refresh_runtime_stats()
 
     def dispel_debuff(self, debuff):
         """
@@ -523,7 +526,7 @@ class Unit(ABC):
             The debuff to be removed from this unit
         """
         self.debuffs.remove(debuff)
-        self.refresh_runtime_stats()
+        self.decorated_self.refresh_runtime_stats()
 
     def unlock_buffs_debuffs(self, keyword):
         """
