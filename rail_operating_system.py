@@ -180,6 +180,9 @@ class RailOperatingSystem:
                 step += 1
                 commands, done = unit.talent(targets, step)
                 self.run_commands(commands)
+        # skips a turn (frozen, etc.)
+        elif action_type == "Pass":
+            pass
         # most units won't have this action
         elif action_type == "Extra Move":
             while not done:
@@ -361,7 +364,7 @@ class RailOperatingSystem:
                     ult_found_this_round = True
                     # let the character use ultimate
                     self.run_action(action)
-        # if someone ever used ultimate, it can cause someone to take an extra turn (like Seele's ultimate kills an enemy)
+        # ultimates can cause someone to take an extra turn (like Seele's ultimate kills an enemy)
         if ult_found_ever:
             self.check_extra_turn()
             # if the extra turn enables any ultimate it will check them automatically

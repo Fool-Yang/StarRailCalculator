@@ -66,7 +66,7 @@ class Unit(ABC):
             break_effect,
             outgoing_healing_boost, incoming_healing_boost,
             max_energy, energy_regen,
-            effect_hit_rate, effect_res,
+            effect_hit_rate, effect_res, crowd_control_res,
             physical_dmg_boost,
             fire_dmg_boost,
             ice_dmg_boost,
@@ -104,6 +104,7 @@ class Unit(ABC):
             "Energy Regeneration Rate": energy_regen,
             "Effect Hit Rate": effect_hit_rate,
             "Effect RES": effect_res,
+            "Crowd Control RES": crowd_control_res,
             # DMG Boost types can be added dynamically, so I have to use a dict
             # like they may boost fire dmg, dot, skill dmg, and more in the future
             # these works well with the implemented dmg tags
@@ -168,6 +169,7 @@ class Unit(ABC):
         self.in_extra_turn = False
         self.buffs = []
         self.debuffs = []
+        self.crowd_control = set()
         # initialize hp and energy
         self.refresh_runtime_stats()
         self.hp = self.runtime_stats["HP"]
@@ -324,6 +326,7 @@ class Unit(ABC):
         -------
         A tuple of commands
         """
+        commands = []
         self.unlock_buffs_debuffs("End")
         removed_ones = []
         removed_any = False
@@ -344,9 +347,12 @@ class Unit(ABC):
                     removed_any = True
         for debuff in removed_ones:
             self.debuffs.remove(debuff)
+        if "Frozen" in self.crowd_control:
+            data = ((self.decorated_self, 0.5),)
+            commands.append(("Advance", self.decorated_self, data))
         if removed_any:
             self.refresh_runtime_stats()
-        return tuple()
+        return tuple(commands)
 
     def add_buff(self, new_buff):
         """
@@ -545,6 +551,7 @@ class Unit(ABC):
                     self.runtime_stats[key][sub_key] = stats[sub_key]
             else:
                 self.runtime_stats[key] = stats
+        self.crowd_control = set()
         # count buffs/debuffs
         for buff in self.buffs:
             type_name = buff["Type"]
@@ -570,6 +577,11 @@ class Unit(ABC):
                     self.runtime_stats[type_name][dmg_type] = -value
             elif type_name in self.runtime_stats:
                 self.runtime_stats[type_name] -= value
+            elif type_name == "Crowd Control":
+                debuff_id = debuff["ID"]
+                self.crowd_control.add(debuff_id)
+                if debuff_id == "Imprisoned":
+                    self.runtime_stats["SPD"] -= value
         # avoid non-positive speed
         if self.runtime_stats["SPD"] < 0.01:
             self.runtime_stats["SPD"] = 0.01

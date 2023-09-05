@@ -15,7 +15,7 @@ class ImbibitorLunae(Character):
             break_effect=0,
             outgoing_healing_boost=0, incoming_healing_boost=0,
             max_energy=140, energy_regen=0,
-            effect_hit_rate=0, effect_res=0,
+            effect_hit_rate=0, effect_res=0, crowd_control_res=0,
             physical_dmg_boost=0,
             fire_dmg_boost=0,
             ice_dmg_boost=0,

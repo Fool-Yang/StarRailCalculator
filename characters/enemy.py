@@ -61,7 +61,7 @@ class Enemy(Unit):
             break_effect=0,
             outgoing_healing_boost=0, incoming_healing_boost=0,
             max_energy=0, energy_regen=0,
-            effect_hit_rate=effect_hit_rate, effect_res=effect_res,
+            effect_hit_rate=effect_hit_rate, effect_res=effect_res, crowd_control_res=0,
             physical_dmg_boost=0,
             fire_dmg_boost=0,
             ice_dmg_boost=0,
