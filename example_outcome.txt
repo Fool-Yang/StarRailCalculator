@@ -1,290 +1,315 @@
 At time step 100.0: SP = 3
-Enemy2 uses Basic ATK on Blade
-  Blade takes 574 DMG
-
-At time step 100.0: SP = 3
-Boss1 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
-  Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
-
-At time step 100.0: SP = 3
-Enemy3 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
-
-At time step 100.0: SP = 3
-Dummy1 uses Basic ATK on Enemy2
-  Enemy2 takes 703 DMG
-
-At time step 100.0: SP = 3
-Dummy2 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
-
-At time step 100.0: SP = 3
-Dummy3 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
-
-At time step 103.1: SP = 3
-Blade uses Skill on Blade
-  Blade consumes 2044 HP
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 681 HP
-  Boss1 takes 3846 DMG
-  Boss1 takes 3846 DMG  Enemy2 takes 3077 DMG  Enemy3 takes 3077 DMG
-
-At time step 200.0: SP = 2
-Dummy3 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
-
-At time step 200.0: SP = 2
-Dummy2 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
-
-At time step 200.0: SP = 2
-Dummy1 uses Basic ATK on Enemy2
-  Enemy2 takes 703 DMG
-
-At time step 200.0: SP = 2
-Enemy3 uses Basic ATK on Blade
-  Blade takes 574 DMG
-Blade uses Talent on Enemy2 Boss1 Enemy3
-  Enemy2 takes 9296 DMG  Boss1 takes 9296 DMG  Enemy3 takes 9296 DMG
-  Blade restores 0 HP
-
-At time step 200.0: SP = 2
-Boss1 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-Boss1 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-
-At time step 200.0: SP = 2
-Enemy2 uses Basic ATK on Blade
-  Blade takes 574 DMG
-
-At time step 206.2: SP = 2
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 681 HP
-  Boss1 takes 3846 DMG
-  Boss1 takes 3846 DMG  Enemy2 takes 3077 DMG  Enemy3 takes 3077 DMG
-Blade uses Ultimate on Boss1 Enemy2 Enemy3
-  Blade consumes 3406 HP
-  Boss1 takes 14063 DMG  Enemy2 takes 5625 DMG  Enemy3 takes 5625 DMG
-
-At time step 300.0: SP = 2
 Enemy2 uses Basic ATK on Dummy3
   Dummy3 takes 524 DMG
 
-At time step 300.0: SP = 2
-Boss1 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
+At time step 100.0: SP = 3
+Boss1 uses Basic ATK on Blade
+  Blade takes 574 DMG
 Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
   Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
 
-At time step 300.0: SP = 2
-Enemy3 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
+At time step 100.0: SP = 3
+Enemy3 uses Basic ATK on Blade
+  Blade takes 574 DMG
 
-At time step 300.0: SP = 2
+At time step 100.0: SP = 3
 Dummy1 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
+  Enemy3 takes 879 DMG
 
-At time step 300.0: SP = 2
+At time step 100.0: SP = 4
 Dummy2 uses Basic ATK on Boss1
-  Boss1 takes 703 DMG
+  Boss1 takes 879 DMG
 
-At time step 300.0: SP = 2
+At time step 100.0: SP = 5
 Dummy3 uses Basic ATK on Enemy2
-  Enemy2 takes 703 DMG
+  Enemy2 takes 879 DMG
 
-At time step 309.3: SP = 2
+At time step 103.1: SP = 5
+Blade uses Skill on Blade
+  Blade consumes 2454 HP
 Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 681 HP
-  Boss1 takes 3846 DMG
-  Boss1 takes 3846 DMG  Enemy2 takes 3077 DMG  Enemy3 takes 3077 DMG
+  Blade consumes 818 HP
+  Boss1 takes 9091 DMG
+  Boss1 takes 9091 DMG  Enemy2 takes 7273 DMG  Enemy3 takes 7273 DMG
+  Enemy2 breaks  Enemy2 takes 2691 DMG
+  Enemy3 breaks  Enemy3 takes 2691 DMG
 Blade uses Talent on Enemy2 Boss1 Enemy3
-  Enemy2 takes 8295 DMG  Boss1 takes 8295 DMG  Enemy3 takes 8295 DMG
+  Enemy2 takes 23428 DMG  Boss1 takes 21085 DMG  Enemy3 takes 23428 DMG
   Blade restores 0 HP
 
-At time step 400.0: SP = 2
-Dummy3 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
+At time step 200.0: SP = 4
+Dummy3 uses Basic ATK on Boss1
+  Boss1 takes 879 DMG
 
-At time step 400.0: SP = 2
+At time step 200.0: SP = 5
 Dummy2 uses Basic ATK on Boss1
-  Boss1 takes 703 DMG
+  Boss1 takes 879 DMG
 
-At time step 400.0: SP = 2
+At time step 200.0: SP = 5
 Dummy1 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
+  Enemy3 takes 976 DMG
 
-At time step 400.0: SP = 2
-Enemy3 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-
-At time step 400.0: SP = 2
+At time step 200.0: SP = 5
 Boss1 uses Basic ATK on Dummy1
   Dummy1 takes 524 DMG
-Boss1 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
+Boss1 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
 
-At time step 400.0: SP = 2
-Enemy2 uses Basic ATK on Dummy1
-  Dummy1 takes 524 DMG
-
-At time step 412.4: SP = 2
+At time step 206.2: SP = 5
 Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 681 HP
-  Boss1 takes 3846 DMG
-  Boss1 takes 3846 DMG  Enemy2 takes 3077 DMG  Enemy3 takes 3077 DMG
+  Blade consumes 818 HP
+  Boss1 takes 9091 DMG
+  Boss1 takes 9091 DMG  Enemy2 takes 8081 DMG  Enemy3 takes 8081 DMG
+  Blade restores 0 HP
+Blade uses Ultimate on Boss1 Enemy2 Enemy3
+  Blade consumes 4090 HP
+  Boss1 takes 35917 DMG  Enemy2 takes 15963 DMG  Enemy3 takes 15963 DMG
 
-At time step 500.0: SP = 2
-Enemy2 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-
-At time step 500.0: SP = 2
-Boss1 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
-  Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
-
-At time step 500.0: SP = 2
+At time step 225.0: SP = 5
+  Enemy3 takes 3209 DMG
 Enemy3 uses Basic ATK on Dummy3
   Dummy3 takes 524 DMG
 
-At time step 500.0: SP = 2
-Dummy1 uses Basic ATK on Boss1
-  Boss1 takes 703 DMG
+At time step 225.0: SP = 5
+  Enemy2 takes 3209 DMG
+Enemy2 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
 
-At time step 500.0: SP = 2
-Dummy2 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
-
-At time step 500.0: SP = 2
-Dummy3 uses Basic ATK on Boss1
-  Boss1 takes 703 DMG
-
-At time step 515.5: SP = 2
-Blade uses Skill on Blade
-  Blade consumes 2044 HP
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 681 HP
-  Boss1 takes 3846 DMG
-  Boss1 takes 3846 DMG  Enemy2 takes 3077 DMG  Enemy3 takes 3077 DMG
-
-At time step 600.0: SP = 1
-Dummy3 uses Basic ATK on Enemy2
-  Enemy2 takes 703 DMG
-
-At time step 600.0: SP = 1
-Dummy2 uses Basic ATK on Boss1
-  Boss1 takes 703 DMG
-
-At time step 600.0: SP = 1
-Dummy1 uses Basic ATK on Enemy2
-  Enemy2 takes 703 DMG
-
-At time step 600.0: SP = 1
-Enemy3 uses Basic ATK on Blade
-  Blade takes 574 DMG
-Blade uses Talent on Enemy2 Boss1 Enemy3
-  Enemy2 takes 9296 DMG  Boss1 takes 9296 DMG  Enemy3 takes 9296 DMG
-  Blade restores 0 HP
-
-At time step 600.0: SP = 1
-Boss1 uses Basic ATK on Dummy1
-  Dummy1 takes 524 DMG
-Boss1 uses Basic ATK on Dummy1
-  Dummy1 takes 524 DMG
-
-At time step 600.0: SP = 1
-Enemy2 uses Basic ATK on Blade
-  Blade takes 574 DMG
-
-At time step 618.6: SP = 1
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 681 HP
-  Boss1 takes 3846 DMG
-  Boss1 takes 3846 DMG  Enemy2 takes 3077 DMG  Enemy3 takes 3077 DMG
-Blade uses Ultimate on Boss1 Enemy2 Enemy3
-  Blade consumes 3406 HP
-  Boss1 takes 14063 DMG  Enemy2 takes 5625 DMG  Enemy3 takes 5625 DMG
-
-At time step 700.0: SP = 1
-Enemy2 uses Basic ATK on Blade
-  Blade takes 574 DMG
-
-At time step 700.0: SP = 1
+At time step 300.0: SP = 5
 Boss1 uses Basic ATK on Dummy2
   Dummy2 takes 524 DMG
 Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
   Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
-Blade uses Talent on Enemy2 Boss1 Enemy3
-  Enemy2 takes 9296 DMG  Boss1 takes 9296 DMG  Enemy3 takes 9296 DMG
+
+At time step 300.0: SP = 5
+Dummy1 uses Basic ATK on Enemy2
+  Enemy2 takes 879 DMG
+
+At time step 300.0: SP = 5
+Dummy2 uses Basic ATK on Enemy2
+  Enemy2 takes 879 DMG
+  Enemy2 breaks  Enemy2 takes 3588 DMG
+
+At time step 300.0: SP = 5
+Dummy3 uses Basic ATK on Enemy2
+  Enemy2 takes 976 DMG
+
+At time step 309.3: SP = 5
+Blade uses Basic ATK on Boss1 Enemy2 Enemy3
+  Blade consumes 818 HP
+  Boss1 takes 9091 DMG
+  Boss1 takes 9091 DMG  Enemy2 takes 8081 DMG  Enemy3 takes 7273 DMG
   Blade restores 0 HP
 
-At time step 700.0: SP = 1
+At time step 325.0: SP = 5
+  Enemy3 takes 2888 DMG
 Enemy3 uses Basic ATK on Blade
   Blade takes 574 DMG
+Blade uses Talent on Enemy2 Boss1 Enemy3
+  Enemy2 takes 26057 DMG  Boss1 takes 23451 DMG  Enemy3 takes 23451 DMG
+  Blade restores 0 HP
 
-At time step 700.0: SP = 1
-Dummy1 uses Basic ATK on Enemy2
-  Enemy2 takes 703 DMG
+At time step 350.0: SP = 5
+  Enemy2 takes 3209 DMG
+  Enemy2 takes 1524 DMG
+Enemy2 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
 
-At time step 700.0: SP = 1
-Dummy2 uses Basic ATK on Boss1
-  Boss1 takes 703 DMG
-
-At time step 700.0: SP = 1
+At time step 400.0: SP = 5
 Dummy3 uses Basic ATK on Enemy2
-  Enemy2 takes 703 DMG
+  Enemy2 takes 879 DMG
 
-At time step 721.6: SP = 1
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 681 HP
-  Boss1 takes 3846 DMG
-  Boss1 takes 3846 DMG  Enemy2 takes 3077 DMG  Enemy3 takes 3077 DMG
-
-At time step 800.0: SP = 1
-Dummy3 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
-
-At time step 800.0: SP = 1
+At time step 400.0: SP = 5
 Dummy2 uses Basic ATK on Boss1
-  Boss1 takes 703 DMG
+  Boss1 takes 879 DMG
 
-At time step 800.0: SP = 1
+At time step 400.0: SP = 5
 Dummy1 uses Basic ATK on Enemy3
-  Enemy3 takes 703 DMG
+  Enemy3 takes 879 DMG
+  Enemy3 breaks  Enemy3 takes 3588 DMG
 
-At time step 800.0: SP = 1
+At time step 400.0: SP = 5
+Boss1 uses Basic ATK on Dummy1
+  Dummy1 takes 524 DMG
+Boss1 uses Basic ATK on Dummy2
+  Dummy2 takes 524 DMG
+
+At time step 412.4: SP = 5
+Blade uses Basic ATK on Boss1 Enemy2 Enemy3
+  Blade consumes 818 HP
+  Boss1 takes 9091 DMG
+  Boss1 takes 9091 DMG  Enemy2 takes 7273 DMG  Enemy3 takes 8081 DMG
+  Enemy2 breaks  Enemy2 takes 2691 DMG
+  Blade restores 0 HP
+
+At time step 450.0: SP = 5
+  Enemy3 takes 1524 DMG
 Enemy3 uses Basic ATK on Dummy1
   Dummy1 takes 524 DMG
 
-At time step 800.0: SP = 1
-Boss1 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
-Boss1 uses Basic ATK on Dummy1
-  Dummy1 takes 524 DMG
-
-At time step 800.0: SP = 1
+At time step 475.0: SP = 5
+  Enemy2 takes 1524 DMG
+  Enemy2 takes 2492 DMG
 Enemy2 uses Basic ATK on Blade
   Blade takes 574 DMG
 
-At time step 824.7: SP = 1
+At time step 500.0: SP = 5
+Boss1 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
+Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
+  Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
+
+At time step 500.0: SP = 5
+Dummy1 uses Basic ATK on Enemy2
+  Enemy2 takes 879 DMG
+
+At time step 500.0: SP = 5
+Dummy2 uses Basic ATK on Enemy3
+  Enemy3 takes 879 DMG
+
+At time step 500.0: SP = 5
+Dummy3 uses Basic ATK on Boss1
+  Boss1 takes 879 DMG
+
+At time step 515.5: SP = 5
+Blade uses Skill on Blade
+  Blade consumes 2454 HP
 Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 681 HP
-  Boss1 takes 3846 DMG
-  Boss1 takes 3846 DMG  Enemy2 takes 3077 DMG  Enemy3 takes 3077 DMG
+  Blade consumes 818 HP
+  Boss1 takes 9091 DMG
+  Boss1 takes 9091 DMG  Enemy2 takes 7273 DMG  Enemy3 takes 7273 DMG
+  Enemy2 breaks  Enemy2 takes 2691 DMG
+  Enemy3 breaks  Enemy3 takes 2691 DMG
+Blade uses Talent on Enemy2 Boss1 Enemy3
+  Enemy2 takes 23428 DMG  Boss1 takes 21085 DMG  Enemy3 takes 23428 DMG
+  Blade restores 0 HP
 
-Testing finished. Time taken: 0.031 seconds
+At time step 575.0: SP = 4
+  Enemy3 takes 1524 DMG
+  Enemy3 takes 3209 DMG
+Enemy3 uses Basic ATK on Dummy1
+  Dummy1 takes 524 DMG
+
+At time step 600.0: SP = 4
+  Enemy2 takes 6418 DMG
+Enemy2 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
+
+At time step 600.0: SP = 4
+Dummy3 uses Basic ATK on Enemy2
+  Enemy2 takes 879 DMG
+
+At time step 600.0: SP = 5
+Dummy2 uses Basic ATK on Enemy2
+  Enemy2 takes 879 DMG
+  Enemy2 breaks  Enemy2 takes 3588 DMG
+
+At time step 600.0: SP = 5
+Dummy1 uses Basic ATK on Enemy2
+  Enemy2 takes 976 DMG
+
+At time step 600.0: SP = 5
+Boss1 uses Basic ATK on Blade
+  Blade takes 574 DMG
+Boss1 uses Basic ATK on Dummy2
+  Dummy2 takes 524 DMG
+
+At time step 618.6: SP = 5
+Blade uses Basic ATK on Boss1 Enemy2 Enemy3
+  Blade consumes 818 HP
+  Boss1 takes 9091 DMG
+  Boss1 takes 9091 DMG  Enemy2 takes 8081 DMG  Enemy3 takes 7273 DMG
+  Blade restores 0 HP
+Blade uses Ultimate on Boss1 Enemy2 Enemy3
+  Blade consumes 4090 HP
+  Boss1 takes 35917 DMG  Enemy2 takes 15963 DMG  Enemy3 takes 14367 DMG
+  Enemy3 breaks  Enemy3 takes 2691 DMG
+
+At time step 700.0: SP = 5
+  Enemy3 takes 6418 DMG
+Enemy3 uses Basic ATK on Blade
+  Blade takes 574 DMG
+
+At time step 700.0: SP = 5
+Boss1 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
+Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
+  Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
+Blade uses Talent on Enemy2 Boss1 Enemy3
+  Enemy2 takes 26057 DMG  Boss1 takes 23451 DMG  Enemy3 takes 23451 DMG
+  Blade restores 0 HP
+
+At time step 700.0: SP = 5
+Dummy1 uses Basic ATK on Enemy3
+  Enemy3 takes 879 DMG
+  Enemy3 breaks  Enemy3 takes 3588 DMG
+
+At time step 700.0: SP = 5
+Dummy2 uses Basic ATK on Enemy3
+  Enemy3 takes 976 DMG
+
+At time step 700.0: SP = 5
+Dummy3 uses Basic ATK on Boss1
+  Boss1 takes 879 DMG
+
+At time step 721.6: SP = 5
+Blade uses Basic ATK on Boss1 Enemy2 Enemy3
+  Blade consumes 818 HP
+  Boss1 takes 9091 DMG
+  Boss1 takes 9091 DMG  Enemy2 takes 8081 DMG  Enemy3 takes 8081 DMG
+  Blade restores 0 HP
+
+At time step 725.0: SP = 5
+  Enemy2 takes 6418 DMG
+  Enemy2 takes 1524 DMG
+Enemy2 uses Basic ATK on Blade
+  Blade takes 574 DMG
+
+At time step 800.0: SP = 5
+Dummy3 uses Basic ATK on Enemy3
+  Enemy3 takes 976 DMG
+
+At time step 800.0: SP = 5
+Dummy2 uses Basic ATK on Enemy3
+  Enemy3 takes 976 DMG
+
+At time step 800.0: SP = 5
+Dummy1 uses Basic ATK on Enemy2
+  Enemy2 takes 879 DMG
+
+At time step 800.0: SP = 5
+Boss1 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
+Boss1 uses Basic ATK on Dummy2
+  Dummy2 takes 524 DMG
+
+At time step 824.7: SP = 5
+Blade uses Basic ATK on Boss1 Enemy2 Enemy3
+  Blade consumes 818 HP
+  Boss1 takes 9091 DMG
+  Boss1 takes 9091 DMG  Enemy2 takes 7273 DMG  Enemy3 takes 8081 DMG
+  Enemy2 breaks  Enemy2 takes 2691 DMG
+  Blade restores 0 HP
+
+At time step 825.0: SP = 5
+  Enemy3 takes 4983 DMG
+  Enemy3 takes 1524 DMG
+Enemy3 uses Basic ATK on Dummy2
+  Dummy2 takes 524 DMG
+
+At time step 850.0: SP = 5
+  Enemy2 takes 1524 DMG
+  Enemy2 takes 2492 DMG
+Enemy2 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
+
+Testing finished. Time taken: 0.022 seconds
 Average Results Over 1 trials:
-Blade did 269947 DMG
-Basic ATK Enhanced Wind: 41.0%; Talent Wind: 40.2%; Ultimate Wind: 18.8%
-Dummy1 did 5623 DMG
+Blade did 747972 DMG
+Basic ATK Enhanced Wind: 35.9%; Break Wind: 2.5%; Talent Follow-Up Wind: 37.7%; Ultimate Wind: 17.9%; Wind Shear DoT Wind: 6.0%
+Dummy1 did 18972 DMG
+Basic ATK Physical: 38.1%; Break Physical: 37.8%; Bleed DoT Physical: 24.1%
+Dummy2 did 20495 DMG
+Basic ATK Physical: 35.2%; Break Physical: 35.0%; Bleed DoT Physical: 29.7%
+Dummy3 did 7224 DMG
 Basic ATK Physical: 100.0%
-Dummy2 did 5623 DMG
-Basic ATK Physical: 100.0%
-Dummy3 did 5623 DMG
-Basic ATK Physical: 100.0%
-
-Process finished with exit code 0

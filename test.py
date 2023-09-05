@@ -3,6 +3,9 @@ from light_cones import *
 from relics import *
 from time import time
 
+ALL_WEAKNESSES = {"Physical", "Fire", "Ice", "Lightning", "Wind", "Quantum", "Imaginary"}
+
+
 trial = 1
 battle_length = 850
 auto_heal_mode = True
@@ -10,11 +13,11 @@ show = trial == 1
 records = {}
 t0 = time()
 for _ in range(trial):
-    E1 = Boss("Boss1")
-    E2 = Enemy("Enemy2")
-    E3 = Enemy("Enemy3")
-    E4 = Enemy("Enemy4")
-    E5 = Enemy("Enemy5")
+    E1 = Boss("Boss1", weaknesses=ALL_WEAKNESSES)
+    E2 = Enemy("Enemy2", weaknesses=ALL_WEAKNESSES)
+    E3 = Enemy("Enemy3", weaknesses=ALL_WEAKNESSES)
+    E4 = Enemy("Enemy4", weaknesses=ALL_WEAKNESSES)
+    E5 = Enemy("Enemy5", weaknesses=ALL_WEAKNESSES)
     # enemies = [E1]
     enemies = [E2, E1, E3]
     # enemies = [E4, E2, E1, E3, E5]
