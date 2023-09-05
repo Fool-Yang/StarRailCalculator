@@ -1,315 +1,308 @@
-At time step 100.0: SP = 3
-Enemy2 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
+"C:\Program Files\Python37\python.exe" C:/Users/Apple/PycharmProjects/StarRailCalculator/test.py
+At time step 92.5: SP = 3
+Imbibitor Lunae uses Basic ATK on Boss1 Enemy2 Enemy3
+  Boss1 takes 4946 DMG
+  Boss1 takes 5535 DMG
+  Boss1 takes 5810 DMG
+  Boss1 takes 6411 DMG  Enemy2 takes 4039 DMG  Enemy3 takes 4039 DMG
+  Boss1 takes 7042 DMG  Enemy2 takes 4436 DMG  Enemy3 takes 4436 DMG
+  Boss1 takes 7702 DMG  Enemy2 takes 4852 DMG  Enemy3 takes 4852 DMG
+  Boss1 takes 8391 DMG  Enemy2 takes 5286 DMG  Enemy3 takes 5286 DMG
+  Enemy2 breaks  Enemy2 takes 897 DMG
+  Enemy3 breaks  Enemy3 takes 897 DMG
 
-At time step 100.0: SP = 3
-Boss1 uses Basic ATK on Blade
-  Blade takes 574 DMG
-Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
-  Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
-
-At time step 100.0: SP = 3
-Enemy3 uses Basic ATK on Blade
-  Blade takes 574 DMG
-
-At time step 100.0: SP = 3
-Dummy1 uses Basic ATK on Enemy3
-  Enemy3 takes 879 DMG
-
-At time step 100.0: SP = 4
-Dummy2 uses Basic ATK on Boss1
-  Boss1 takes 879 DMG
-
-At time step 100.0: SP = 5
-Dummy3 uses Basic ATK on Enemy2
-  Enemy2 takes 879 DMG
-
-At time step 103.1: SP = 5
-Blade uses Skill on Blade
-  Blade consumes 2454 HP
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 818 HP
-  Boss1 takes 9091 DMG
-  Boss1 takes 9091 DMG  Enemy2 takes 7273 DMG  Enemy3 takes 7273 DMG
-  Enemy2 breaks  Enemy2 takes 2691 DMG
-  Enemy3 breaks  Enemy3 takes 2691 DMG
-Blade uses Talent on Enemy2 Boss1 Enemy3
-  Enemy2 takes 23428 DMG  Boss1 takes 21085 DMG  Enemy3 takes 23428 DMG
-  Blade restores 0 HP
-
-At time step 200.0: SP = 4
-Dummy3 uses Basic ATK on Boss1
-  Boss1 takes 879 DMG
-
-At time step 200.0: SP = 5
-Dummy2 uses Basic ATK on Boss1
-  Boss1 takes 879 DMG
-
-At time step 200.0: SP = 5
-Dummy1 uses Basic ATK on Enemy3
-  Enemy3 takes 976 DMG
-
-At time step 200.0: SP = 5
-Boss1 uses Basic ATK on Dummy1
-  Dummy1 takes 524 DMG
+At time step 100.0: SP = 0
 Boss1 uses Basic ATK on Dummy3
   Dummy3 takes 524 DMG
+Boss1 uses Skill on Imbibitor Lunae Dummy1 Dummy2 Dummy3
+  Imbibitor Lunae takes 296 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
 
-At time step 206.2: SP = 5
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 818 HP
-  Boss1 takes 9091 DMG
-  Boss1 takes 9091 DMG  Enemy2 takes 8081 DMG  Enemy3 takes 8081 DMG
-  Blade restores 0 HP
-Blade uses Ultimate on Boss1 Enemy2 Enemy3
-  Blade consumes 4090 HP
-  Boss1 takes 35917 DMG  Enemy2 takes 15963 DMG  Enemy3 takes 15963 DMG
+At time step 100.0: SP = 0
+Dummy1 uses Basic ATK on Boss1
+  Boss1 takes 879 DMG
 
-At time step 225.0: SP = 5
-  Enemy3 takes 3209 DMG
-Enemy3 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
-
-At time step 225.0: SP = 5
-  Enemy2 takes 3209 DMG
-Enemy2 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
-
-At time step 300.0: SP = 5
-Boss1 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
-  Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
-
-At time step 300.0: SP = 5
-Dummy1 uses Basic ATK on Enemy2
-  Enemy2 takes 879 DMG
-
-At time step 300.0: SP = 5
+At time step 100.0: SP = 1
 Dummy2 uses Basic ATK on Enemy2
-  Enemy2 takes 879 DMG
-  Enemy2 breaks  Enemy2 takes 3588 DMG
-
-At time step 300.0: SP = 5
-Dummy3 uses Basic ATK on Enemy2
   Enemy2 takes 976 DMG
 
-At time step 309.3: SP = 5
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 818 HP
-  Boss1 takes 9091 DMG
-  Boss1 takes 9091 DMG  Enemy2 takes 8081 DMG  Enemy3 takes 7273 DMG
-  Blade restores 0 HP
-
-At time step 325.0: SP = 5
-  Enemy3 takes 2888 DMG
-Enemy3 uses Basic ATK on Blade
-  Blade takes 574 DMG
-Blade uses Talent on Enemy2 Boss1 Enemy3
-  Enemy2 takes 26057 DMG  Boss1 takes 23451 DMG  Enemy3 takes 23451 DMG
-  Blade restores 0 HP
-
-At time step 350.0: SP = 5
-  Enemy2 takes 3209 DMG
-  Enemy2 takes 1524 DMG
-Enemy2 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
-
-At time step 400.0: SP = 5
-Dummy3 uses Basic ATK on Enemy2
-  Enemy2 takes 879 DMG
-
-At time step 400.0: SP = 5
-Dummy2 uses Basic ATK on Boss1
-  Boss1 takes 879 DMG
-
-At time step 400.0: SP = 5
-Dummy1 uses Basic ATK on Enemy3
-  Enemy3 takes 879 DMG
-  Enemy3 breaks  Enemy3 takes 3588 DMG
-
-At time step 400.0: SP = 5
-Boss1 uses Basic ATK on Dummy1
-  Dummy1 takes 524 DMG
-Boss1 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-
-At time step 412.4: SP = 5
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 818 HP
-  Boss1 takes 9091 DMG
-  Boss1 takes 9091 DMG  Enemy2 takes 7273 DMG  Enemy3 takes 8081 DMG
-  Enemy2 breaks  Enemy2 takes 2691 DMG
-  Blade restores 0 HP
-
-At time step 450.0: SP = 5
-  Enemy3 takes 1524 DMG
-Enemy3 uses Basic ATK on Dummy1
-  Dummy1 takes 524 DMG
-
-At time step 475.0: SP = 5
-  Enemy2 takes 1524 DMG
-  Enemy2 takes 2492 DMG
-Enemy2 uses Basic ATK on Blade
-  Blade takes 574 DMG
-
-At time step 500.0: SP = 5
-Boss1 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
-Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
-  Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
-
-At time step 500.0: SP = 5
-Dummy1 uses Basic ATK on Enemy2
-  Enemy2 takes 879 DMG
-
-At time step 500.0: SP = 5
-Dummy2 uses Basic ATK on Enemy3
-  Enemy3 takes 879 DMG
-
-At time step 500.0: SP = 5
-Dummy3 uses Basic ATK on Boss1
-  Boss1 takes 879 DMG
-
-At time step 515.5: SP = 5
-Blade uses Skill on Blade
-  Blade consumes 2454 HP
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 818 HP
-  Boss1 takes 9091 DMG
-  Boss1 takes 9091 DMG  Enemy2 takes 7273 DMG  Enemy3 takes 7273 DMG
-  Enemy2 breaks  Enemy2 takes 2691 DMG
-  Enemy3 breaks  Enemy3 takes 2691 DMG
-Blade uses Talent on Enemy2 Boss1 Enemy3
-  Enemy2 takes 23428 DMG  Boss1 takes 21085 DMG  Enemy3 takes 23428 DMG
-  Blade restores 0 HP
-
-At time step 575.0: SP = 4
-  Enemy3 takes 1524 DMG
-  Enemy3 takes 3209 DMG
-Enemy3 uses Basic ATK on Dummy1
-  Dummy1 takes 524 DMG
-
-At time step 600.0: SP = 4
-  Enemy2 takes 6418 DMG
-Enemy2 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
-
-At time step 600.0: SP = 4
-Dummy3 uses Basic ATK on Enemy2
-  Enemy2 takes 879 DMG
-
-At time step 600.0: SP = 5
-Dummy2 uses Basic ATK on Enemy2
-  Enemy2 takes 879 DMG
-  Enemy2 breaks  Enemy2 takes 3588 DMG
-
-At time step 600.0: SP = 5
-Dummy1 uses Basic ATK on Enemy2
-  Enemy2 takes 976 DMG
-
-At time step 600.0: SP = 5
-Boss1 uses Basic ATK on Blade
-  Blade takes 574 DMG
-Boss1 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-
-At time step 618.6: SP = 5
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 818 HP
-  Boss1 takes 9091 DMG
-  Boss1 takes 9091 DMG  Enemy2 takes 8081 DMG  Enemy3 takes 7273 DMG
-  Blade restores 0 HP
-Blade uses Ultimate on Boss1 Enemy2 Enemy3
-  Blade consumes 4090 HP
-  Boss1 takes 35917 DMG  Enemy2 takes 15963 DMG  Enemy3 takes 14367 DMG
-  Enemy3 breaks  Enemy3 takes 2691 DMG
-
-At time step 700.0: SP = 5
-  Enemy3 takes 6418 DMG
-Enemy3 uses Basic ATK on Blade
-  Blade takes 574 DMG
-
-At time step 700.0: SP = 5
-Boss1 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
-Boss1 uses Skill on Blade Dummy1 Dummy2 Dummy3
-  Blade takes 287 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
-Blade uses Talent on Enemy2 Boss1 Enemy3
-  Enemy2 takes 26057 DMG  Boss1 takes 23451 DMG  Enemy3 takes 23451 DMG
-  Blade restores 0 HP
-
-At time step 700.0: SP = 5
-Dummy1 uses Basic ATK on Enemy3
-  Enemy3 takes 879 DMG
-  Enemy3 breaks  Enemy3 takes 3588 DMG
-
-At time step 700.0: SP = 5
-Dummy2 uses Basic ATK on Enemy3
-  Enemy3 takes 976 DMG
-
-At time step 700.0: SP = 5
-Dummy3 uses Basic ATK on Boss1
-  Boss1 takes 879 DMG
-
-At time step 721.6: SP = 5
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 818 HP
-  Boss1 takes 9091 DMG
-  Boss1 takes 9091 DMG  Enemy2 takes 8081 DMG  Enemy3 takes 8081 DMG
-  Blade restores 0 HP
-
-At time step 725.0: SP = 5
-  Enemy2 takes 6418 DMG
-  Enemy2 takes 1524 DMG
-Enemy2 uses Basic ATK on Blade
-  Blade takes 574 DMG
-
-At time step 800.0: SP = 5
+At time step 100.0: SP = 2
 Dummy3 uses Basic ATK on Enemy3
   Enemy3 takes 976 DMG
 
-At time step 800.0: SP = 5
+At time step 161.9: SP = 3
+Enemy2 uses Basic ATK on Imbibitor Lunae
+  Imbibitor Lunae takes 592 DMG
+
+At time step 161.9: SP = 3
+Enemy3 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
+
+At time step 185.0: SP = 3
+Imbibitor Lunae uses Basic ATK on Boss1 Enemy2 Enemy3
+  Boss1 takes 5260 DMG
+  Boss1 takes 5535 DMG
+  Boss1 takes 5810 DMG
+  Boss1 takes 6411 DMG  Enemy2 takes 4039 DMG  Enemy3 takes 4039 DMG
+  Boss1 takes 7042 DMG  Enemy2 takes 4436 DMG  Enemy3 takes 4436 DMG
+  Boss1 takes 7702 DMG  Enemy2 takes 4852 DMG  Enemy3 takes 4852 DMG
+  Boss1 takes 8391 DMG  Enemy2 takes 5286 DMG  Enemy3 takes 5286 DMG
+  Enemy2 breaks  Enemy2 takes 897 DMG
+  Enemy3 breaks  Enemy3 takes 897 DMG
+Imbibitor Lunae uses Ultimate on Boss1 Enemy2 Enemy3
+  Boss1 takes 10345 DMG  Enemy2 takes 5364 DMG  Enemy3 takes 5364 DMG
+  Boss1 takes 10345 DMG  Enemy2 takes 5364 DMG  Enemy3 takes 5364 DMG
+  Boss1 takes 10345 DMG  Enemy2 takes 5364 DMG  Enemy3 takes 5364 DMG
+
+At time step 200.0: SP = 0
+Dummy3 uses Basic ATK on Enemy2
+  Enemy2 takes 976 DMG
+
+At time step 200.0: SP = 1
+Dummy2 uses Basic ATK on Enemy2
+  Enemy2 takes 976 DMG
+
+At time step 200.0: SP = 2
+Dummy1 uses Basic ATK on Enemy2
+  Enemy2 takes 976 DMG
+
+At time step 200.0: SP = 3
+Boss1 uses Basic ATK on Imbibitor Lunae
+  Imbibitor Lunae takes 592 DMG
+Boss1 uses Basic ATK on Dummy1
+  Dummy1 takes 524 DMG
+
+At time step 277.5: SP = 3
+Imbibitor Lunae uses Basic ATK on Boss1 Enemy2 Enemy3
+  Boss1 takes 5260 DMG
+  Boss1 takes 5535 DMG
+  Boss1 takes 5810 DMG
+  Boss1 takes 6411 DMG  Enemy2 takes 4488 DMG  Enemy3 takes 4488 DMG
+  Boss1 takes 7042 DMG  Enemy2 takes 4929 DMG  Enemy3 takes 4929 DMG
+  Boss1 takes 7702 DMG  Enemy2 takes 5391 DMG  Enemy3 takes 5391 DMG
+  Boss1 takes 8391 DMG  Enemy2 takes 5874 DMG  Enemy3 takes 5874 DMG
+  Boss1 breaks  Boss1 takes 3812 DMG
+
+At time step 300.0: SP = 2
+Dummy1 uses Basic ATK on Boss1
+  Boss1 takes 976 DMG
+
+At time step 300.0: SP = 3
 Dummy2 uses Basic ATK on Enemy3
   Enemy3 takes 976 DMG
 
-At time step 800.0: SP = 5
-Dummy1 uses Basic ATK on Enemy2
-  Enemy2 takes 879 DMG
+At time step 300.0: SP = 4
+Dummy3 uses Basic ATK on Enemy2
+  Enemy2 takes 976 DMG
 
-At time step 800.0: SP = 5
-Boss1 uses Basic ATK on Dummy3
-  Dummy3 takes 524 DMG
-Boss1 uses Basic ATK on Dummy2
-  Dummy2 takes 524 DMG
-
-At time step 824.7: SP = 5
-Blade uses Basic ATK on Boss1 Enemy2 Enemy3
-  Blade consumes 818 HP
-  Boss1 takes 9091 DMG
-  Boss1 takes 9091 DMG  Enemy2 takes 7273 DMG  Enemy3 takes 8081 DMG
-  Enemy2 breaks  Enemy2 takes 2691 DMG
-  Blade restores 0 HP
-
-At time step 825.0: SP = 5
-  Enemy3 takes 4983 DMG
-  Enemy3 takes 1524 DMG
+At time step 331.6: SP = 5
 Enemy3 uses Basic ATK on Dummy2
   Dummy2 takes 524 DMG
 
-At time step 850.0: SP = 5
+At time step 331.6: SP = 5
+Enemy2 uses Basic ATK on Imbibitor Lunae
+  Imbibitor Lunae takes 592 DMG
+
+At time step 363.6: SP = 5
+Boss1 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
+Boss1 uses Skill on Imbibitor Lunae Dummy1 Dummy2 Dummy3
+  Imbibitor Lunae takes 296 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
+
+At time step 370.0: SP = 5
+Imbibitor Lunae uses Basic ATK on Boss1 Enemy2 Enemy3
+  Boss1 takes 5260 DMG
+  Boss1 takes 5535 DMG
+  Boss1 takes 5810 DMG
+  Boss1 takes 6411 DMG  Enemy2 takes 4039 DMG  Enemy3 takes 4039 DMG
+  Boss1 takes 7042 DMG  Enemy2 takes 4436 DMG  Enemy3 takes 4436 DMG
+  Boss1 takes 7702 DMG  Enemy2 takes 4852 DMG  Enemy3 takes 4852 DMG
+  Boss1 takes 8391 DMG  Enemy2 takes 5286 DMG  Enemy3 takes 5286 DMG
+  Enemy2 breaks  Enemy2 takes 897 DMG
+  Enemy3 breaks  Enemy3 takes 897 DMG
+
+At time step 400.0: SP = 2
+Dummy3 uses Basic ATK on Enemy3
+  Enemy3 takes 976 DMG
+
+At time step 400.0: SP = 3
+Dummy2 uses Basic ATK on Enemy2
+  Enemy2 takes 976 DMG
+
+At time step 400.0: SP = 4
+Dummy1 uses Basic ATK on Enemy2
+  Enemy2 takes 976 DMG
+
+At time step 462.4: SP = 5
+Imbibitor Lunae uses Basic ATK on Boss1 Enemy2 Enemy3
+  Boss1 takes 5260 DMG
+  Boss1 takes 5535 DMG
+  Boss1 takes 5810 DMG
+  Boss1 takes 6411 DMG  Enemy2 takes 4488 DMG  Enemy3 takes 4488 DMG
+  Boss1 takes 7042 DMG  Enemy2 takes 4929 DMG  Enemy3 takes 4929 DMG
+  Boss1 takes 7702 DMG  Enemy2 takes 5391 DMG  Enemy3 takes 5391 DMG
+  Boss1 takes 8391 DMG  Enemy2 takes 5874 DMG  Enemy3 takes 5874 DMG
+Imbibitor Lunae uses Ultimate on Boss1 Enemy2 Enemy3
+  Boss1 takes 10345 DMG  Enemy2 takes 5364 DMG  Enemy3 takes 5364 DMG
+  Boss1 takes 10345 DMG  Enemy2 takes 5364 DMG  Enemy3 takes 5364 DMG
+  Boss1 takes 10345 DMG  Enemy2 takes 5364 DMG  Enemy3 takes 5364 DMG
+
+At time step 463.6: SP = 2
+Boss1 uses Basic ATK on Imbibitor Lunae
+  Imbibitor Lunae takes 592 DMG
+Boss1 uses Basic ATK on Imbibitor Lunae
+  Imbibitor Lunae takes 592 DMG
+
+At time step 499.6: SP = 2
+Enemy2 uses Basic ATK on Imbibitor Lunae
+  Imbibitor Lunae takes 592 DMG
+
+At time step 499.6: SP = 2
+Enemy3 uses Basic ATK on Dummy2
+  Dummy2 takes 524 DMG
+
+At time step 500.0: SP = 2
+Dummy1 uses Basic ATK on Enemy2
+  Enemy2 takes 879 DMG
+
+At time step 500.0: SP = 3
+Dummy2 uses Basic ATK on Boss1
+  Boss1 takes 879 DMG
+
+At time step 500.0: SP = 4
+Dummy3 uses Basic ATK on Enemy2
+  Enemy2 takes 879 DMG
+  Enemy2 breaks  Enemy2 takes 3588 DMG
+
+At time step 554.9: SP = 5
+Imbibitor Lunae uses Basic ATK on Boss1 Enemy2 Enemy3
+  Boss1 takes 5260 DMG
+  Boss1 takes 5535 DMG
+  Boss1 takes 5810 DMG
+  Boss1 takes 6411 DMG  Enemy2 takes 4488 DMG  Enemy3 takes 4039 DMG
+  Boss1 takes 7042 DMG  Enemy2 takes 4929 DMG  Enemy3 takes 4436 DMG
+  Boss1 takes 7702 DMG  Enemy2 takes 5391 DMG  Enemy3 takes 4852 DMG
+  Boss1 takes 8391 DMG  Enemy2 takes 5874 DMG  Enemy3 takes 5286 DMG
+  Boss1 breaks  Boss1 takes 3812 DMG
+  Enemy3 breaks  Enemy3 takes 897 DMG
+
+At time step 600.0: SP = 4
+Dummy3 uses Basic ATK on Boss1
+  Boss1 takes 976 DMG
+
+At time step 600.0: SP = 5
+Dummy2 uses Basic ATK on Enemy3
+  Enemy3 takes 976 DMG
+
+At time step 600.0: SP = 5
+Dummy1 uses Basic ATK on Boss1
+  Boss1 takes 976 DMG
+
+At time step 624.6: SP = 5
   Enemy2 takes 1524 DMG
-  Enemy2 takes 2492 DMG
+Enemy2 uses Basic ATK on Dummy1
+  Dummy1 takes 524 DMG
+
+At time step 625.7: SP = 5
+Boss1 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
+Boss1 uses Skill on Imbibitor Lunae Dummy1 Dummy2 Dummy3
+  Imbibitor Lunae takes 296 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
+
+At time step 647.4: SP = 5
+Imbibitor Lunae uses Basic ATK on Boss1 Enemy2 Enemy3
+  Boss1 takes 5260 DMG
+  Boss1 takes 5535 DMG
+  Boss1 takes 5810 DMG
+  Boss1 takes 6411 DMG  Enemy2 takes 4039 DMG  Enemy3 takes 4488 DMG
+  Boss1 takes 7042 DMG  Enemy2 takes 4436 DMG  Enemy3 takes 4929 DMG
+  Boss1 takes 7702 DMG  Enemy2 takes 4852 DMG  Enemy3 takes 5391 DMG
+  Boss1 takes 8391 DMG  Enemy2 takes 5286 DMG  Enemy3 takes 5874 DMG
+  Enemy2 breaks  Enemy2 takes 897 DMG
+
+At time step 665.6: SP = 2
+Enemy3 uses Basic ATK on Dummy1
+  Dummy1 takes 524 DMG
+
+At time step 700.0: SP = 2
+Dummy1 uses Basic ATK on Enemy2
+  Enemy2 takes 976 DMG
+
+At time step 700.0: SP = 3
+Dummy2 uses Basic ATK on Boss1
+  Boss1 takes 879 DMG
+
+At time step 700.0: SP = 4
+Dummy3 uses Basic ATK on Enemy3
+  Enemy3 takes 879 DMG
+
+At time step 725.7: SP = 5
+Boss1 uses Basic ATK on Dummy3
+  Dummy3 takes 524 DMG
+Boss1 uses Basic ATK on Dummy1
+  Dummy1 takes 524 DMG
+
+At time step 739.9: SP = 5
+Imbibitor Lunae uses Basic ATK on Boss1 Enemy2 Enemy3
+  Boss1 takes 5260 DMG
+  Boss1 takes 5535 DMG
+  Boss1 takes 5810 DMG
+  Boss1 takes 6411 DMG  Enemy2 takes 4488 DMG  Enemy3 takes 4039 DMG
+  Boss1 takes 7042 DMG  Enemy2 takes 4929 DMG  Enemy3 takes 4436 DMG
+  Enemy3 breaks  Enemy3 takes 897 DMG
+  Boss1 takes 8021 DMG  Enemy2 takes 5615 DMG  Enemy3 takes 5615 DMG
+  Boss1 takes 8391 DMG  Enemy2 takes 5874 DMG  Enemy3 takes 5874 DMG
+Imbibitor Lunae uses Ultimate on Boss1 Enemy2 Enemy3
+  Boss1 takes 10345 DMG  Enemy2 takes 5364 DMG  Enemy3 takes 5364 DMG
+  Boss1 takes 10345 DMG  Enemy2 takes 5364 DMG  Enemy3 takes 5364 DMG
+  Boss1 takes 10345 DMG  Enemy2 takes 5364 DMG  Enemy3 takes 5364 DMG
+
+At time step 794.3: SP = 2
+  Enemy2 takes 1524 DMG
 Enemy2 uses Basic ATK on Dummy3
   Dummy3 takes 524 DMG
 
-Testing finished. Time taken: 0.022 seconds
+At time step 800.0: SP = 2
+Dummy3 uses Basic ATK on Enemy3
+  Enemy3 takes 976 DMG
+
+At time step 800.0: SP = 3
+Dummy2 uses Basic ATK on Enemy3
+  Enemy3 takes 976 DMG
+
+At time step 800.0: SP = 4
+Dummy1 uses Basic ATK on Boss1
+  Boss1 takes 879 DMG
+
+At time step 825.7: SP = 5
+Boss1 uses Basic ATK on Imbibitor Lunae
+  Imbibitor Lunae takes 592 DMG
+Boss1 uses Skill on Imbibitor Lunae Dummy1 Dummy2 Dummy3
+  Imbibitor Lunae takes 296 DMG  Dummy1 takes 262 DMG  Dummy2 takes 262 DMG  Dummy3 takes 262 DMG
+
+At time step 829.6: SP = 5
+Enemy3 uses Basic ATK on Imbibitor Lunae
+  Imbibitor Lunae takes 592 DMG
+
+At time step 832.4: SP = 5
+Imbibitor Lunae uses Basic ATK on Boss1 Enemy2 Enemy3
+  Boss1 takes 5260 DMG
+  Boss1 takes 5535 DMG
+  Boss1 takes 5810 DMG
+  Boss1 takes 6411 DMG  Enemy2 takes 4039 DMG  Enemy3 takes 4039 DMG
+  Boss1 takes 7042 DMG  Enemy2 takes 4436 DMG  Enemy3 takes 4436 DMG
+  Boss1 takes 7702 DMG  Enemy2 takes 4852 DMG  Enemy3 takes 4852 DMG
+  Boss1 breaks  Boss1 takes 3812 DMG
+  Boss1 takes 9323 DMG  Enemy2 takes 5286 DMG  Enemy3 takes 5286 DMG
+  Enemy2 breaks  Enemy2 takes 897 DMG
+  Enemy3 breaks  Enemy3 takes 897 DMG
+
+Testing finished. Time taken: 0.058 seconds
 Average Results Over 1 trials:
-Blade did 747972 DMG
-Basic ATK Enhanced Wind: 35.9%; Break Wind: 2.5%; Talent Follow-Up Wind: 37.7%; Ultimate Wind: 17.9%; Wind Shear DoT Wind: 6.0%
-Dummy1 did 18972 DMG
-Basic ATK Physical: 38.1%; Break Physical: 37.8%; Bleed DoT Physical: 24.1%
-Dummy2 did 20495 DMG
-Basic ATK Physical: 35.2%; Break Physical: 35.0%; Bleed DoT Physical: 29.7%
-Dummy3 did 7224 DMG
+Imbibitor Lunae did 978359 DMG
+Basic ATK Enhanced Imaginary: 78.4%; Break Imaginary: 2.2%; Ultimate Imaginary: 19.4%
+Dummy1 did 7517 DMG
 Basic ATK Physical: 100.0%
+Dummy2 did 7614 DMG
+Basic ATK Physical: 100.0%
+Dummy3 did 14250 DMG
+Basic ATK Physical: 53.4%; Break Physical: 25.2%; Bleed DoT Physical: 21.4%

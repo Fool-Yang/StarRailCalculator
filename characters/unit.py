@@ -209,7 +209,6 @@ class Unit(ABC):
         This explains why Sleep Like the Dead's buff don't decay after the turn it's triggered.
         """
         self.decorated_self.unlock_buffs_debuffs("Action")
-        self.toughness = self.max_toughness
         return self.decorated_self.choose_action(enemies, players, sp)
 
     def check_extra_commands(self, enemies, players, blackboard):
@@ -273,8 +272,8 @@ class Unit(ABC):
 
     def start_turn(self):
         """
-        Starts the turn and deal with buffs/debuffs that take effects at the turn-start phase.
-        Returns a batch of commands (may be empty). These are typically DMG commands from DoT or Heal commands.
+        Starts the turn and deal with buffs/debuffs that take effects at the turn-start phase. Restores toughness if
+        broken. Returns a batch of commands (may be empty). These are typically DMG commands from DoT or Heal commands.
 
         Returns:
         -------
@@ -324,6 +323,9 @@ class Unit(ABC):
                     commands.append(("DMG", debuff["Source"], data))
         for debuff in removed_ones:
             self.debuffs.remove(debuff)
+        # restore toughness if broken
+        if self.toughness <= 0:
+            self.toughness = self.max_toughness
         if removed_any:
             self.decorated_self.refresh_runtime_stats()
         return tuple(commands)
