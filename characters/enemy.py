@@ -152,12 +152,13 @@ class Enemy(Unit):
         tags = ("Break", dmg_type)
         data = ((self.decorated_self, (dmg, 0), tags),)
         commands.append(("DMG", source, data))
-        # weakness break debuff
         dmg = self.weakness_beak_debuff_dmg[dmg_type]
         if dmg_type in WEAKNESS_BREAK_DOT_NAMES:
-            debuff_id = WEAKNESS_BREAK_DOT_NAMES[dmg_type]
+            # weakness break action delay
             data = ((self.decorated_self, 0.25),)
             commands.append(("Delay", source, data))
+            # weakness break debuff
+            debuff_id = WEAKNESS_BREAK_DOT_NAMES[dmg_type]
             if dmg_type == "Wind":
                 max_stack = 5
                 if isinstance(self, Boss):
@@ -168,7 +169,7 @@ class Enemy(Unit):
                 max_stack = 1
                 stack = 1
             debuff = {
-                "ID": debuff_id + " Break",
+                "ID": debuff_id,
                 "Type": "DoT",
                 "DMG Type": dmg_type,
                 "Value Type": "Flat",
@@ -183,6 +184,7 @@ class Enemy(Unit):
                 "Locked": True
             }
         else:
+            # weakness break action delay and debuff
             debuff_id = WEAKNESS_BREAK_DEBUFF_NAMES[dmg_type]
             if dmg_type == "Quantum":
                 value = dmg
@@ -216,7 +218,6 @@ class Enemy(Unit):
             }
         data = ((self.decorated_self, 1.5, debuff),)
         commands.append(("Debuff", source, data))
-        # weakness break action delay
         return tuple(commands)
 
     def basic_atk(self, targets, step):
