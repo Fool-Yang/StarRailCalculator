@@ -81,7 +81,8 @@ class Enemy(Unit):
         self.level = 90
         self.weaknesses = weaknesses
         for dmg_type in weaknesses:
-            self.stats[dmg_type] = 0
+            self.stats["RES Boost"][dmg_type] = 0
+        self.decorated_self.refresh_runtime_stats()
         self.max_toughness = max_toughness
         self.toughness = max_toughness
 
@@ -99,10 +100,11 @@ class Enemy(Unit):
         commands.append(("End ATK", self.decorated_self, targets))
         return tuple(commands), True
 
-    def refresh_runtime_stats(self):
-        super(Enemy, self).refresh_runtime_stats()
+    def reduce_incoming_dmg(self, dmg_and_break, source, tags, enemies, players):
+        dmg, break_dmg = super(Enemy, self).reduce_incoming_dmg(dmg_and_break, source, tags, enemies, players)
         if self.toughness > 0:
-            self.runtime_stats["DMG Taken Decrease"] = 1 - (1 - self.runtime_stats["DMG Taken Decrease"]) * 0.9
+            dmg *= 0.9
+        return dmg, break_dmg
 
 
 class Boss(Enemy):
