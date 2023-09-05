@@ -735,7 +735,7 @@ class Unit(ABC):
     def reduce_incoming_dmg(self, dmg_and_break, source, tags, enemies, players):
         """
         Calculates the reduced incoming damage affected by the the DEF, DEF Ignore, RES Boost, RES PEN
-        and DMG Taken Increase stats.
+        and DMG Taken Increase stats. Also block any non-weakness break damage
 
         Parameters:
         ----------
@@ -777,6 +777,8 @@ class Unit(ABC):
         if multiplier3 > 3.5:
             multiplier3 = 3.5
         multiplier4 = 1 - self.runtime_stats["DMG Taken Decrease"]
+        if tags[-1] not in self.weaknesses:
+            break_dmg = 0
         return multiplier1 * multiplier2 * multiplier3 * multiplier4 * dmg, break_dmg
 
     def take_dmg(self, dmg_and_break, source, tags, enemies, players):
@@ -800,8 +802,6 @@ class Unit(ABC):
             The tuple of player units
         """
         dmg, break_dmg = dmg_and_break
-        if tags[-1] not in self.weaknesses:
-            break_dmg = 0
         self.hp -= dmg
         self.toughness -= break_dmg
 
