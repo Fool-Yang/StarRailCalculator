@@ -202,13 +202,16 @@ class Unit(ABC):
 
     def take_action(self, enemies, players, sp):
         """
-        Unlocks buffs and debuffs that unlock at the action phase, then calls choose_action().
+        Unlocks (de)buffs that unlock at the action phase, and restores toughness if broken. Then calls choose_action().
         (De)buffs are locked when applied. Locked buffs can't decay. Most buffs unlock at the start of the action phase.
         In unit U's turn, if you buff U after U take an action, the buff usually don't decay at turn end,
         but if you buff U with other units' ultimate first, then let U take action, the buff will decay at turn end.
         This explains why Sleep Like the Dead's buff don't decay after the turn it's triggered.
         """
         self.decorated_self.unlock_buffs_debuffs("Action")
+        # restore toughness if broken
+        if self.toughness <= 0:
+            self.toughness = self.max_toughness
         return self.decorated_self.choose_action(enemies, players, sp)
 
     def check_extra_commands(self, enemies, players, blackboard):
@@ -272,8 +275,8 @@ class Unit(ABC):
 
     def start_turn(self):
         """
-        Starts the turn and deal with buffs/debuffs that take effects at the turn-start phase. Restores toughness if
-        broken. Returns a batch of commands (may be empty). These are typically DMG commands from DoT or Heal commands.
+        Starts the turn and deal with buffs/debuffs that take effects at the turn-start phase.
+        Returns a batch of commands (may be empty). These are typically DMG commands from DoT or Heal commands.
 
         Returns:
         -------
@@ -323,9 +326,6 @@ class Unit(ABC):
                     commands.append(("DMG", debuff["Source"], data))
         for debuff in removed_ones:
             self.debuffs.remove(debuff)
-        # restore toughness if broken
-        if self.toughness <= 0:
-            self.toughness = self.max_toughness
         if removed_any:
             self.decorated_self.refresh_runtime_stats()
         return tuple(commands)
